@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checks": [
+    "72 raw metric rows, 18 runs, four-class mAP identity",
+    "All saved means and sample SDs independently match raw metrics",
+    "Fixed-target YOLO26 gap regression; all full and clean-only seed gaps positive",
+    "Negative tests reject duplicate rows and missing fixed-target baselines",
+    "18 retained training CSVs have 150 epochs and the stated validation peaks",
+    "main.pdf: 6 pages, resolved labels/citations, no missing glyphs or material horizontal overflow",
+    "supplement.pdf: 2 pages, resolved labels/citations, no missing glyphs or material horizontal overflow",
+    "Three distinct figure inclusions plus one optional plot; all four rendered backgrounds are white; no dark assets"
+  ],
+  "scope": "Archived-metric reanalysis and manuscript artifact validation; no new training/inference"
+}

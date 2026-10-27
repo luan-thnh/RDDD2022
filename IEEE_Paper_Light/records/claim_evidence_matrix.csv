@@ -1,0 +1,11 @@
+claim_id,claim,verification_status,evidence
+R01,Three variants x two training domains x three seeds =18 runs,ARCHIVED_RECORDS_VERIFIED,data/run_identities.json;data/training_audit.csv
+R02,658 full-test images; 4378 total derived images,TEST_METADATA_VERIFIED_TOTAL_AUTHOR_REPORTED,data/all_metrics.csv;main.tex:Table I
+R03,YOLO26 gaps 16.91±0.80/42.27±1.28 pp,ARCHIVED_METRICS_RECOMPUTED,data/gap_summary.csv;tables/gaps.tex
+R04,All 18 full and all 18 clean-only gap comparisons positive,ARCHIVED_METRICS_RECOMPUTED,data/fixed_target_gaps_by_seed.csv
+R05,YOLO26 highest in-domain mean mAP among three variants,ARCHIVED_METRICS_RECOMPUTED,data/metric_summary.csv;tables/matrix.tex
+R06,D20 MotorBike gap 53.21/57.72/56.45 pp; D40 Drone mean gaps negative,ARCHIVED_METRICS_RECOMPUTED,data/all_metrics.csv;figures/class_gaps_light.pdf
+R07,"All runs 150 epochs, patience0; max validation mAP epoch63–133",LOGS_VERIFIED,data/training_logs/;tables/peak_epochs.tex
+R08,Scene pair audit735 and bbox test supports,AUTHOR_REPORTED_NOT_INDEPENDENTLY_REAUDITED,Original author manuscript;main.tex:Data and Audit Protocol
+R09,Camera geometry alone causes performance differences,NOT_CLAIMED_CAUSAL_EFFECT_UNIDENTIFIED,main.tex:Discussion
+R10,Three distinct figures included; all four supplied figures white,RENDER_AND_SOURCE_VERIFIED,build/validation.json

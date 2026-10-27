@@ -1,0 +1,3 @@
+observation,candidate_rule,status
+"Cross-test subtraction mislabeled target-fixed gap","Use complete model/train/target/seed/subset keys and verify matrix identity","Validated for this project; global skill unchanged"
+"Wide IEEE supplementary floats produced sparse pages","Use explicitly laid out single-column supplementary tables when no venue template is mandated","Validated by rendered PDF review"

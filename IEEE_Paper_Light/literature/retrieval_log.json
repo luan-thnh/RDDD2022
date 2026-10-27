@@ -1,0 +1,95 @@
+[
+  {
+    "key": "road_damage_original",
+    "url": "https://arxiv.org/abs/1801.09454",
+    "status": "unavailable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "rdd2022_original",
+    "url": "https://arxiv.org/abs/2209.08538",
+    "status": "unavailable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "wilds_original",
+    "url": "https://proceedings.mlr.press/v139/koh21a.html",
+    "status": "unavailable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "dg_survey",
+    "url": "https://arxiv.org/abs/2103.02503",
+    "status": "unavailable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "coco_original",
+    "url": "https://arxiv.org/abs/1405.0312",
+    "status": "unavailable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "yolov8_docs",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/main/docs/en/models/yolov8.md",
+    "status": "retrieved",
+    "bytes": 25588,
+    "accessed_utc": "2026-10-27T10:23:03.711559+00:00"
+  },
+  {
+    "key": "yolo11_docs",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/main/docs/en/models/yolo11.md",
+    "status": "retrieved",
+    "bytes": 23893,
+    "accessed_utc": "2026-10-27T10:23:03.706429+00:00"
+  },
+  {
+    "key": "yolo26_docs",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/main/docs/en/models/yolo26.md",
+    "status": "retrieved",
+    "bytes": 18499,
+    "accessed_utc": "2026-10-27T10:23:03.669373+00:00"
+  },
+  {
+    "key": "yolord_original",
+    "url": "https://www.mdpi.com/1424-8220/25/5/1442",
+    "status": "unavailable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "rdd_project",
+    "url": "https://raw.githubusercontent.com/sekilab/RoadDamageDetector/master/README.md",
+    "status": "retrieved",
+    "bytes": 27782
+  },
+  {
+    "key": "rdd2022_project",
+    "url": "https://raw.githubusercontent.com/sekilab/RoadDamageDetector/master/RDD2022/README.md",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "key": "wilds_project",
+    "url": "https://raw.githubusercontent.com/p-lambda/wilds/main/README.md",
+    "status": "retrieved",
+    "bytes": 21984
+  },
+  {
+    "key": "dg_project",
+    "url": "https://raw.githubusercontent.com/KaiyangZhou/Dassl.pytorch/master/README.md",
+    "status": "retrieved",
+    "bytes": 19008
+  },
+  {
+    "key": "coco_project",
+    "url": "https://raw.githubusercontent.com/cocodataset/cocoapi/master/README.txt",
+    "status": "retrieved",
+    "bytes": 1286
+  },
+  {
+    "key": "ieee_bst",
+    "url": "https://raw.githubusercontent.com/latextemplates/IEEE/master/IEEEtran.bst",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

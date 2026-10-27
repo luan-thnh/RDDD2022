@@ -1,0 +1,39 @@
+{
+  "project_id": "RDD2022_v41_paper_review",
+  "run_id": "20261027_light_manuscript_revision",
+  "timestamp_utc": "2026-10-27T10:36:32.990370+00:00",
+  "stage": "STORY_REVIEW_ARCHIVE",
+  "status": "completed_draft_compiled_and_checked",
+  "study_type": "descriptive bidirectional fixed-target evaluation",
+  "scope": "Authorized manuscript rewrite, light-only figures, numeric consistency, PDF build and layout review",
+  "protocol_sha256": "55c87dabc5da1ef500560648ec40717cde381dec0410b3abab83cbdfceed1322",
+  "source_data": "18 uploaded experiment archives and author manuscript; retained verified CSVs",
+  "holdout_access": "No new original-image access or inference",
+  "validation": {
+    "status": "passed",
+    "checks": [
+      "72 raw metric rows, 18 runs, four-class mAP identity",
+      "All saved means and sample SDs independently match raw metrics",
+      "Fixed-target YOLO26 gap regression; all full and clean-only seed gaps positive",
+      "Negative tests reject duplicate rows and missing fixed-target baselines",
+      "18 retained training CSVs have 150 epochs and the stated validation peaks",
+      "main.pdf: 6 pages, resolved labels/citations, no missing glyphs or material horizontal overflow",
+      "supplement.pdf: 2 pages, resolved labels/citations, no missing glyphs or material horizontal overflow",
+      "Three distinct figure inclusions plus one optional plot; all four rendered backgrounds are white; no dark assets"
+    ],
+    "scope": "Archived-metric reanalysis and manuscript artifact validation; no new training/inference"
+  },
+  "outputs": {
+    "main_pdf_pages": 6,
+    "supplement_pdf_pages": 2,
+    "included_distinct_light_figures": 3,
+    "optional_light_figures": 1
+  },
+  "limitations": [
+    "No new training/inference",
+    "Original scene audit and annotations not independently replayed",
+    "Direct paper-host retrieval blocked; primary project abstracts/docs and metadata consulted",
+    "Funding, conflicts, contributions and venue-specific submission requirements require author confirmation"
+  ],
+  "next_action": "Author reads compiled manuscript and confirms administrative/venue details before submission"
+}

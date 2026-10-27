@@ -1,0 +1,8 @@
+reference,evidence_opened,reading_status,boundary
+maeda2018road,rdd_project.txt:Road Damage Dataset 2018,ABSTRACT_ONLY,Official author repository reproduces abstract/citation; full article inaccessible
+arya2024rdd2022,rdd_project.txt:RDD2022 dataset and citation,PRIMARY_PROJECT_SUMMARY,Dataset domains and citation metadata checked; full journal article inaccessible
+zhou2023survey,dg_project.txt:Introduction/Citation,PRIMARY_PROJECT_SUMMARY_AND_METADATA,Broad context only; full survey inaccessible; detailed volume/pages/DOI retained from supplied bibliography
+koh2021wilds,wilds_project.txt:Overview/Citing,PRIMARY_PROJECT_SUMMARY_AND_METADATA,Benchmark purpose/splits and title/authors checked; full proceedings inaccessible
+ultralyticsyolov8,yolov8_docs.md,OFFICIAL_DOCUMENTATION_OPENED,Current docs not proof of historical training-runtime behavior
+jocher2024yolo11,yolo11_docs.md,OFFICIAL_DOCUMENTATION_OPENED,Current docs not proof of historical training-runtime behavior
+ultralyticsyolo26,yolo26_docs.md,OFFICIAL_DOCUMENTATION_OPENED,2026 citation supported; no claim of independently reading linked model paper

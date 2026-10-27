@@ -1,0 +1,8 @@
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "rewrite", "source": "main.tex", "result": "All sections revised using three-model archived results", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "tables", "source": "tables/", "result": "Seven tables generated from audited CSVs", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "figures", "source": "figures/", "result": "Four white-background plots generated; three distinct plot inclusions and one optional figure", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "references", "source": "literature/", "result": "Primary project summaries, author abstract and official model docs consulted; access limits retained", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "build", "source": "main.pdf;supplement.pdf", "result": "XeLaTeX+BibTeX produced main6/supplement2 pages", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "validation", "source": "build/validation.json", "result": "Numeric identities, negative tests, source/PDF references and rendered white-background checks passed", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "layout", "source": "build/inspection/", "result": "Rendered manuscript pages inspected; supplement rearranged to remove sparse float-only pages and clipping", "severity": "info"}
+{"timestamp_utc": "2026-10-27T10:36:32.990370+00:00", "step": "handoff", "source": "README_VI.md", "result": "Editable source, retained evidence and regeneration commands included", "severity": "info"}
