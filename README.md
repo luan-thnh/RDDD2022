@@ -5,6 +5,7 @@
 ## Đọc bản hiện tại
 
 - [Bài báo hoàn thiện — PDF 7 trang](IEEE_Paper/main.pdf)
+- [Slide báo cáo tiếng Việt — PowerPoint, PDF và ghi chú (20 slide)](slides/vi/)
 - [Source LaTeX](IEEE_Paper/main.tex)
 - [Hướng dẫn biên dịch và tái tạo](IEEE_Paper/README_VI.md)
 - [Source gốc trước YOLO26 được giữ nguyên](IEEE_Paper/provenance/before_yolo26/main.tex)
