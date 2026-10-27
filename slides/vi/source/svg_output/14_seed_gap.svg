@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<g id="header" data-pptx-bounds="56 20 1168 142" fill="#173348"><text x="56" y="43" font-size="14" fill="#127B80" font-weight="bold">06 · KẾT QUẢ THỰC NGHIỆM</text><text x="1224" y="43" text-anchor="end" font-size="18" fill="#127B80">14</text><text x="56" y="101" font-family="Georgia, Liberation Serif, serif" font-size="40">Cả 18 gap theo seed đều dương; MotorBike có gap lớn hơn</text></g>
+<g id="seed-gap" data-pptx-bounds="56 186 1168 427" fill="#173348">
+<text x="1125" y="215" font-size="22" font-weight="bold" fill="#127B80">Gap TB</text>
+<g id="seed-gap-chartArea">
+<line x1="330" y1="235" x2="330" y2="568" stroke="#DCE6EC"/><line x1="480" y1="235" x2="480" y2="568" stroke="#DCE6EC"/><line x1="630" y1="235" x2="630" y2="568" stroke="#DCE6EC"/><line x1="780" y1="235" x2="780" y2="568" stroke="#DCE6EC"/><line x1="930" y1="235" x2="930" y2="568" stroke="#DCE6EC"/><line x1="1080" y1="235" x2="1080" y2="568" stroke="#DCE6EC"/>
+<!-- chart-plot-area: object=seed-gap | 330,235,1080,568 -->
+<g id="drone-seed11" fill="#176B87"><line x1="492.614" y1="260" x2="604.388" y2="260" stroke="#176B87" stroke-width="2"/><circle cx="574.030" cy="257" r="5"/><circle cx="492.614" cy="260" r="5"/><circle cx="604.388" cy="263" r="5"/></g>
+<g id="drone-seed8" fill="#61899C"><line x1="532.859" y1="310" x2="570.190" y2="310" stroke="#61899C" stroke-width="2"/><circle cx="555.502" cy="307" r="5"/><circle cx="532.859" cy="310" r="5"/><circle cx="570.190" cy="313" r="5"/></g>
+<g id="drone-seed26" fill="#D89335"><line x1="571.530" y1="360" x2="595.626" y2="360" stroke="#D89335" stroke-width="2"/><circle cx="583.599" cy="357" r="5"/><circle cx="571.530" cy="360" r="5"/><circle cx="595.626" cy="363" r="5"/></g>
+<g id="motorbike-seed11" fill="#176B87"><line x1="967.009" y1="440" x2="982.400" y2="440" stroke="#176B87" stroke-width="2"/><circle cx="982.400" cy="437" r="5"/><circle cx="967.009" cy="440" r="5"/><circle cx="972.789" cy="443" r="5"/></g>
+<g id="motorbike-seed8" fill="#61899C"><line x1="935.849" y1="490" x2="965.963" y2="490" stroke="#61899C" stroke-width="2"/><circle cx="935.849" cy="487" r="5"/><circle cx="965.963" cy="490" r="5"/><circle cx="943.914" cy="493" r="5"/></g>
+<g id="motorbike-seed26" fill="#D89335"><line x1="942.003" y1="540" x2="977.061" y2="540" stroke="#D89335" stroke-width="2"/><circle cx="977.061" cy="537" r="5"/><circle cx="973.044" cy="540" r="5"/><circle cx="942.003" cy="543" r="5"/></g>
+</g>
+<g id="row-labels" font-size="22"><text x="56" y="268">Drone · YOLO11n</text><text x="56" y="318">Drone · YOLOv8n</text><text x="56" y="368" font-weight="bold">Drone · YOLO26n</text><text x="56" y="448">MotorBike · YOLO11n</text><text x="56" y="498">MotorBike · YOLOv8n</text><text x="56" y="548" font-weight="bold">MotorBike · YOLO26n</text></g>
+<g id="mean-labels" font-size="22" fill="#127B80" font-weight="bold"><text x="1125" y="268">15.13</text><text x="1125" y="318">14.86</text><text x="1125" y="368">16.91</text><text x="1125" y="448">42.94</text><text x="1125" y="498">41.24</text><text x="1125" y="548">42.27</text></g>
+<g id="axis-labels" font-size="18" fill="#536778" text-anchor="middle"><text x="330" y="599">0</text><text x="480" y="599">10</text><text x="630" y="599">20</text><text x="780" y="599">30</text><text x="930" y="599">40</text><text x="1080" y="599">50</text></g>
+</g>
+<g id="takeaway" data-pptx-bounds="56 618 1168 58" fill="#127B80"><text x="56" y="641" font-size="22" font-weight="bold">Mean gap: Drone 14,86–16,91 pp; MotorBike 41,24–42,94 pp.<tspan x="56" dy="25">Mỗi phép so sánh giữ cùng tập đích.</tspan></text></g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">Nguồn: paper, Bảng V–VI; data/fixed_target_gaps_by_seed.csv · Mỗi điểm là một seed; đơn vị pp</text></g>
+</svg>

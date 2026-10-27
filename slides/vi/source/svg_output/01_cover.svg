@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="cover">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<rect id="side-field" data-pptx-role="decoration" x="882" y="0" width="398" height="670" fill="#F2F7F7"/>
+<g id="header" data-pptx-bounds="56 20 1168 42" fill="#127B80"><text x="56" y="43" font-size="14" font-weight="bold">BÁO CÁO NGHIÊN CỨU · RDD2022</text><text x="1224" y="43" text-anchor="end" font-size="18">01</text></g>
+<g id="cover-title" data-pptx-bounds="56 116 786 205" fill="#173348" font-family="Georgia, Liberation Serif, serif" font-size="48"><text x="56" y="160">Phát hiện hư hỏng mặt đường<tspan x="56" dy="59">suy giảm bao nhiêu khi</tspan><tspan x="56" dy="59">đổi miền thu nhận?</tspan></text></g>
+<g id="standfirst" data-pptx-bounds="56 340 790 80" fill="#127B80" font-size="28"><text x="56" y="369">Đánh giá hai chiều Drone–MotorBike<tspan x="56" dy="38">với YOLO11n, YOLOv8n và YOLO26n</tspan></text></g>
+<g id="authors" data-pptx-bounds="56 463 786 83" fill="#173348" font-size="22"><text x="56" y="489" font-weight="bold">Lê Thành Luân · Phạm Bá Anh Tuấn</text><text x="56" y="529">Trường Đại học Bách khoa – Đại học Đà Nẵng</text></g>
+<g id="study-scope" data-pptx-bounds="56 587 786 42" fill="#536778" font-size="22"><text x="56" y="613">Chia tập theo cảnh · Ba seed · 18 lượt huấn luyện</text></g>
+<g id="domain-scope" data-pptx-authoring="preset" data-pptx-object="shape" data-pptx-prst="bracketPair" data-pptx-frame="917 180 305 340" fill="none" stroke="#DCE6EC" stroke-width="3">
+<path d="M 917 230.83 A 50.83 50.83 0 0 1 967.83 180 L 1171.17 180 A 50.83 50.83 0 0 1 1222 230.83 L 1222 469.17 A 50.83 50.83 0 0 1 1171.17 520 L 967.83 520 A 50.83 50.83 0 0 1 917 469.17 Z" stroke="none"/>
+<path d="M 967.83 520 A 50.83 50.83 0 0 1 917 469.17 L 917 230.83 A 50.83 50.83 0 0 1 967.83 180 M 1171.17 180 A 50.83 50.83 0 0 1 1222 230.83 L 1222 469.17 A 50.83 50.83 0 0 1 1171.17 520"/>
+</g>
+<g id="acquisition-domains" data-pptx-bounds="930 117 280 481" fill="#173348" text-anchor="middle"><text x="1070" y="142" font-size="14" fill="#127B80" font-weight="bold">HAI MIỀN THU NHẬN</text><text x="1070" y="287" font-size="48" font-weight="bold">Drone</text><text x="1070" y="371" font-size="36" fill="#127B80">↕</text><text x="1070" y="459" font-size="48" font-weight="bold">MotorBike</text><text x="1070" y="575" font-size="18" fill="#127B80">Hai tập đích cố định</text></g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">Nguồn: bản thảo hiện tại, IEEE_Paper/main.pdf · RDDD2022, 2026</text></g>
+</svg>

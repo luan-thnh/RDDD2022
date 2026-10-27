@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="toc">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<g id="header" data-pptx-bounds="56 20 1168 142" fill="#173348"><text x="56" y="43" font-size="14" fill="#127B80" font-weight="bold">LỘ TRÌNH TRÌNH BÀY</text><text x="1224" y="43" text-anchor="end" font-size="18" fill="#127B80">02</text><text x="56" y="101" font-family="Georgia, Liberation Serif, serif" font-size="40">Từ vấn đề triển khai đến bằng chứng thực nghiệm</text></g>
+<g id="agenda-left" data-pptx-bounds="56 189 565 441" fill="#173348">
+<line x1="82" y1="208" x2="82" y2="599" stroke="#DCE6EC" stroke-width="2"/>
+<g id="section-one"><rect x="56" y="198" width="56" height="45" fill="#FFFFFF"/><text x="56" y="231" font-size="36" fill="#127B80">01</text><text x="141" y="229" font-size="28" font-weight="bold">Đặt vấn đề</text><text x="141" y="264" font-size="18" fill="#536778">Slide 03–04</text></g>
+<g id="section-two"><rect x="56" y="303" width="56" height="45" fill="#FFFFFF"/><text x="56" y="336" font-size="36" fill="#127B80">02</text><text x="141" y="334" font-size="28" font-weight="bold">Mục tiêu nghiên cứu</text><text x="141" y="369" font-size="18" fill="#536778">Slide 05</text></g>
+<g id="section-three"><rect x="56" y="408" width="56" height="45" fill="#FFFFFF"/><text x="56" y="441" font-size="36" fill="#127B80">03</text><text x="141" y="439" font-size="28" font-weight="bold">Dữ liệu nghiên cứu</text><text x="141" y="474" font-size="18" fill="#536778">Slide 06–08</text></g>
+<g id="section-four"><rect x="56" y="513" width="56" height="45" fill="#FFFFFF"/><text x="56" y="546" font-size="36" fill="#127B80">04</text><text x="141" y="544" font-size="28" font-weight="bold">Phương pháp nghiên cứu</text><text x="141" y="579" font-size="18" fill="#536778">Slide 09–10</text></g>
+</g>
+<g id="agenda-right" data-pptx-bounds="678 189 546 441" fill="#173348">
+<line x1="704" y1="208" x2="704" y2="599" stroke="#DCE6EC" stroke-width="2"/>
+<g id="section-five"><rect x="678" y="198" width="56" height="45" fill="#FFFFFF"/><text x="678" y="231" font-size="36" fill="#127B80">05</text><text x="763" y="229" font-size="28" font-weight="bold">Mô hình và huấn luyện</text><text x="763" y="264" font-size="18" fill="#536778">Slide 11–12</text></g>
+<g id="section-six"><rect x="678" y="303" width="56" height="45" fill="#FFFFFF"/><text x="678" y="336" font-size="36" fill="#127B80">06</text><text x="763" y="334" font-size="28" font-weight="bold">Kết quả thực nghiệm</text><text x="763" y="369" font-size="18" fill="#536778">Slide 13–17</text></g>
+<g id="section-seven"><rect x="678" y="408" width="56" height="45" fill="#FFFFFF"/><text x="678" y="441" font-size="36" fill="#127B80">07</text><text x="763" y="439" font-size="28" font-weight="bold">Hạn chế nghiên cứu</text><text x="763" y="474" font-size="18" fill="#536778">Slide 18</text></g>
+<g id="section-eight"><rect x="678" y="513" width="56" height="45" fill="#FFFFFF"/><text x="678" y="546" font-size="36" fill="#127B80">08</text><text x="763" y="544" font-size="28" font-weight="bold">Kết luận và hướng phát triển</text><text x="763" y="579" font-size="18" fill="#536778">Slide 19–20</text></g>
+</g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">RDD2022 · Đánh giá hai chiều trên cùng tập đích · Bản trình bày nghiên cứu, 2026</text></g>
+</svg>

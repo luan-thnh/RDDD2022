@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<g id="header" data-pptx-bounds="56 20 1168 142" fill="#173348"><text x="56" y="43" font-size="14" fill="#127B80" font-weight="bold">05 · MÔ HÌNH VÀ HUẤN LUYỆN</text><text x="1224" y="43" text-anchor="end" font-size="18" fill="#127B80">12</text><text x="56" y="101" font-family="Georgia, Liberation Serif, serif" font-size="40">Log đủ 150 epoch; đỉnh validation xuất hiện<tspan x="56" dy="47">trước khi kết thúc</tspan></text></g>
+<g id="training-history" data-pptx-bounds="56 179 1168 365"><image href="../images/training_redrawn.png" x="56" y="179" width="1168" height="365" preserveAspectRatio="xMidYMid meet"/></g>
+<g id="validation-peaks" data-pptx-bounds="56 552 1168 46" fill="#127B80"><text x="56" y="586" font-size="28" font-weight="bold">YOLO11n–Drone: đỉnh mAP validation ở epoch 110 / 92 / 111.</text></g>
+<g id="takeaway" data-pptx-bounds="56 614 1168 48" fill="#173348"><text x="56" y="645" font-size="22">Các điểm tròn là cực đại mAP validation được ghi trong log; chưa chứng minh hội tụ tối ưu toàn cục.</text></g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">Vẽ lại từ log YOLO11n–Drone, seed 13/37/71 · Tương ứng paper, Hình 1; đường không làm mượt</text></g>
+</svg>

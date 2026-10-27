@@ -2,10 +2,17 @@
   "slides": 20,
   "pdf_pages": 20,
   "notes": 20,
+  "identical_notes": 20,
+  "source_slide_order_preserved": true,
+  "frozen_strings_readback": "passed",
+  "character_multisets_identical_on_every_slide": true,
   "missing_rendered_text_tokens": [],
-  "audit": {
-    "high": 0,
-    "medium": 0,
-    "low": 72
+  "skill": "ppt-master 6.7.3",
+  "svg_quality_gate": "passed: 20/20, errors=0, warnings=0",
+  "pptx_postflight": "passed, warning_categories=0",
+  "source_commit": "1ad4e8099ae7339186b5fd2d1f5271eee6406d51",
+  "sha256": {
+    "RDD2022_Bao_cao_Tieng_Viet.pptx": "d4c906ec396c37f5ee2c23e9bb257e2fb261a75b468320d85d7aa40401864e67",
+    "RDD2022_Bao_cao_Tieng_Viet.pdf": "99b1806f6ad78f6642dca11df8e6b22319c07188643a3000fe6dfcead065118f"
   }
 }

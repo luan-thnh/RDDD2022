@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<g id="header" data-pptx-bounds="56 20 1168 142" fill="#173348"><text x="56" y="43" font-size="14" fill="#127B80" font-weight="bold">02 · MỤC TIÊU NGHIÊN CỨU</text><text x="1224" y="43" text-anchor="end" font-size="18" fill="#127B80">05</text><text x="56" y="101" font-family="Georgia, Liberation Serif, serif" font-size="40">Định lượng khả năng chuyển miền, kiểm tra tính lặp lại</text></g>
+<g id="objectives" data-pptx-bounds="56 194 1168 350" fill="#173348">
+<g id="bidirectional"><text x="56" y="229" font-size="28" fill="#127B80" font-weight="bold">Đo hai chiều</text><text x="517" y="229">Giữ cố định từng tập đích khi so sánh.</text><line x1="56" y1="264" x2="1224" y2="264" stroke="#DCE6EC"/></g>
+<g id="stability"><text x="56" y="318" font-size="28" fill="#127B80" font-weight="bold">Kiểm tra độ ổn định</text><text x="517" y="318">Ghép cặp seed 13, 37, 71 trên ba model.</text><line x1="56" y1="353" x2="1224" y2="353" stroke="#DCE6EC"/></g>
+<g id="class-analysis"><text x="56" y="407" font-size="28" fill="#127B80" font-weight="bold">Phân tích theo lớp</text><text x="517" y="407">Giữ đủ bốn lớp, kể cả kết quả bất lợi.</text><line x1="56" y1="442" x2="1224" y2="442" stroke="#DCE6EC"/></g>
+<g id="extension"><text x="56" y="496" font-size="28" fill="#D89335" font-weight="bold">Mở rộng bằng YOLO26n</text><text x="517" y="496">So sánh độ chính xác và gap với hai model trước.</text></g>
+</g>
+<g id="experimental-scope" data-pptx-bounds="56 578 1168 86" fill="#127B80"><rect x="56" y="578" width="1168" height="86" fill="#F2F7F7"/><text x="80" y="612" font-size="24" font-weight="bold">Phạm vi: 2 miền × 3 model × 3 seed = 18 lượt huấn luyện;<tspan x="80" dy="33">mỗi lượt được đánh giá trên cả hai tập đích.</tspan></text></g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">Nguồn: paper hiện tại, mục tiêu và đóng góp; thiết kế 18 lượt huấn luyện</text></g>
+</svg>

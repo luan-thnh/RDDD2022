@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<g id="header" data-pptx-bounds="56 20 1168 142" fill="#173348"><text x="56" y="43" font-size="14" fill="#127B80" font-weight="bold">01 · ĐẶT VẤN ĐỀ</text><text x="1224" y="43" text-anchor="end" font-size="18" fill="#127B80">04</text><text x="56" y="101" font-family="Georgia, Liberation Serif, serif" font-size="40">Bốn câu hỏi cần trả lời bằng cùng một giao thức</text></g>
+<g id="research-questions" data-pptx-bounds="56 192 1168 396" fill="#173348">
+<g id="rq-one"><text x="56" y="231" font-size="36" fill="#127B80" font-weight="bold">RQ1</text><text x="210" y="230" font-size="28">Gap lớn bao nhiêu và có bất đối xứng giữa hai tập đích?</text><line x1="210" y1="265" x2="1224" y2="265" stroke="#DCE6EC"/></g>
+<g id="rq-two"><text x="56" y="331" font-size="36" fill="#127B80" font-weight="bold">RQ2</text><text x="210" y="330" font-size="28">Chiều và độ lớn gap có ổn định qua seed và ba model?</text><line x1="210" y1="365" x2="1224" y2="365" stroke="#DCE6EC"/></g>
+<g id="rq-three"><text x="56" y="431" font-size="36" fill="#127B80" font-weight="bold">RQ3</text><text x="210" y="430" font-size="28">D00, D10, D20, D40 suy giảm khác nhau như thế nào?</text><line x1="210" y1="465" x2="1224" y2="465" stroke="#DCE6EC"/></g>
+<g id="rq-four"><text x="56" y="531" font-size="36" fill="#D89335" font-weight="bold">RQ4</text><text x="210" y="530" font-size="28">YOLO26n tăng độ chính xác tuyệt đối có làm giảm gap?</text></g>
+</g>
+<g id="hypothesis" data-pptx-bounds="56 606 1168 58" fill="#127B80"><rect x="56" y="606" width="1168" height="58" fill="#F2F7F7"/><text x="76" y="642" font-size="22" font-weight="bold">Giả thuyết kiểm tra: huấn luyện trên miền đích có lợi thế dương khi đánh giá trên cùng ảnh đích.</text></g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">Nguồn: paper hiện tại, phần I · RQ1–RQ4</text></g>
+</svg>

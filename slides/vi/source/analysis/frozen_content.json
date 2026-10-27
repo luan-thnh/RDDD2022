@@ -1,0 +1,542 @@
+[
+  {
+    "page": 1,
+    "text": [
+      "BÁO CÁO NGHIÊN CỨU · RDD2022",
+      "Phát hiện hư hỏng mặt đường\nsuy giảm bao nhiêu khi đổi miền thu nhận?",
+      "Nguồn: bản thảo hiện tại, IEEE_Paper/main.pdf · RDDD2022, 2026",
+      "01",
+      "Đánh giá hai chiều Drone–MotorBike\nvới YOLO11n, YOLOv8n và YOLO26n",
+      "Lê Thành Luân · Phạm Bá Anh Tuấn\nTrường Đại học Bách khoa – Đại học Đà Nẵng",
+      "Chia tập theo cảnh · Ba seed · 18 lượt huấn luyện",
+      "HAI MIỀN THU NHẬN",
+      "Drone",
+      "↕",
+      "MotorBike",
+      "Hai tập đích cố định"
+    ],
+    "tables": [],
+    "notes": "Bài trình bày bám theo cấu trúc 20 slide, 8 phần do nhóm cung cấp và cập nhật từ bản paper đã bổ sung YOLO26n. Câu hỏi trung tâm là khi chuyển giữa ảnh thu bằng Drone và MotorBike, độ chính xác thay đổi bao nhiêu trên cùng một tập ảnh đích. Đây là nghiên cứu đánh giá thực nghiệm, với ba biến thể YOLO và ba seed; chưa đề xuất kiến trúc mới. Sơ đồ bìa biểu diễn hai miền và thiết kế đánh giá hai chiều; bằng chứng ảnh thực tế và số liệu được trình bày ở các slide tiếp theo."
+  },
+  {
+    "page": 2,
+    "text": [
+      "LỘ TRÌNH TRÌNH BÀY",
+      "Từ vấn đề triển khai đến bằng chứng thực nghiệm",
+      "RDD2022 · Đánh giá hai chiều trên cùng tập đích · Bản trình bày nghiên cứu, 2026",
+      "02",
+      "01",
+      "Đặt vấn đề",
+      "Slide 03–04",
+      "02",
+      "Mục tiêu nghiên cứu",
+      "Slide 05",
+      "03",
+      "Dữ liệu nghiên cứu",
+      "Slide 06–08",
+      "04",
+      "Phương pháp nghiên cứu",
+      "Slide 09–10",
+      "05",
+      "Mô hình và huấn luyện",
+      "Slide 11–12",
+      "06",
+      "Kết quả thực nghiệm",
+      "Slide 13–17",
+      "07",
+      "Hạn chế nghiên cứu",
+      "Slide 18",
+      "08",
+      "Kết luận và hướng phát triển",
+      "Slide 19–20"
+    ],
+    "tables": [],
+    "notes": "Bố cục giữ tám phần như tài liệu cau_truc.md. Phần đầu đặt vấn đề triển khai và xác định câu hỏi. Tiếp theo là dữ liệu, giao thức so sánh trên cùng tập đích, mô hình và cách huấn luyện. Phần kết quả tách hiệu năng tổng thể, độ ổn định qua seed, khác biệt theo lớp, kiểm tra độ nhạy và ảnh minh họa. Cuối cùng là giới hạn của bằng chứng và các đối chứng cần bổ sung. Các đoạn về Czech và India trong cấu trúc cũ được chuyển thành hướng nghiên cứu, vì bộ kết quả hiện tại chỉ xác nhận hai miền Drone và MotorBike."
+  },
+  {
+    "page": 3,
+    "text": [
+      "01 · ĐẶT VẤN ĐỀ",
+      "Đổi nền tảng thu nhận làm thay đổi bối cảnh quan sát",
+      "Nguồn ảnh: YOLO11n D13/M13, run/val_batch0_labels.jpg · Ví dụ validation có nhãn gốc",
+      "03",
+      "Drone · góc nhìn từ trên",
+      "MotorBike · góc nhìn mặt đường",
+      "Cùng bài toán\nKhác góc nhìn\nKhác cảnh\nKhác phân bố dữ liệu",
+      "Hiệu năng trên dữ liệu giống miền huấn luyện chưa đủ để bảo đảm khi triển khai sang miền khác."
+    ],
+    "tables": [],
+    "notes": "Quan sát hai ảnh minh họa: Drone nhìn từ trên xuống, còn MotorBike nhìn dọc mặt đường. Bối cảnh cảnh quan, tỷ lệ và hình dạng biểu kiến có thể khác nhau. Đây chỉ là mô tả từ ví dụ, chưa phải kết quả đo riêng về độ sáng, kích thước hộp hay nguyên nhân suy giảm. Trong thiết kế hiện tại, góc nhìn đồng thời thay đổi với cảnh và cỡ tập huấn luyện. Vì vậy câu hỏi phù hợp là mức chênh lệch gắn với lựa chọn miền huấn luyện, được đo trên tập đích cố định. Chưa diễn giải chênh lệch đó thành tác động nhân quả của độ cao hoặc góc camera."
+  },
+  {
+    "page": 4,
+    "text": [
+      "01 · ĐẶT VẤN ĐỀ",
+      "Bốn câu hỏi cần trả lời bằng cùng một giao thức",
+      "Nguồn: paper hiện tại, phần I · RQ1–RQ4",
+      "04",
+      "RQ1",
+      "Gap lớn bao nhiêu và có bất đối xứng giữa hai tập đích?",
+      "RQ2",
+      "Chiều và độ lớn gap có ổn định qua seed và ba model?",
+      "RQ3",
+      "D00, D10, D20, D40 suy giảm khác nhau như thế nào?",
+      "RQ4",
+      "YOLO26n tăng độ chính xác tuyệt đối có làm giảm gap?",
+      "Giả thuyết kiểm tra: huấn luyện trên miền đích có lợi thế dương khi đánh giá trên cùng ảnh đích."
+    ],
+    "tables": [],
+    "notes": "Bốn RQ được giữ đúng theo paper hiện tại. RQ1 đo gap riêng trên Drone Test và MotorBike Test. RQ2 kiểm tra tính nhất quán qua ba seed ghép cặp và ba biến thể. RQ3 phân tích AP từng lớp để tránh kết luận chỉ dựa trên mAP tổng. RQ4 là phần bổ sung YOLO26n: điểm tuyệt đối có thể tăng nhưng mức phụ thuộc miền chưa chắc giảm. Giả thuyết cần kiểm chứng là lợi thế của mô hình huấn luyện trên miền đích khi hai mô hình cùng được chấm trên các ảnh đích giống hệt nhau. Không lấy hiệu năng trên hai quần thể test khác nhau để định nghĩa gap chính."
+  },
+  {
+    "page": 5,
+    "text": [
+      "02 · MỤC TIÊU NGHIÊN CỨU",
+      "Định lượng khả năng chuyển miền, kiểm tra tính lặp lại",
+      "Nguồn: paper hiện tại, mục tiêu và đóng góp; thiết kế 18 lượt huấn luyện",
+      "05",
+      "Đo hai chiều",
+      "Giữ cố định từng tập đích khi so sánh.",
+      "Kiểm tra độ ổn định",
+      "Ghép cặp seed 13, 37, 71 trên ba model.",
+      "Phân tích theo lớp",
+      "Giữ đủ bốn lớp, kể cả kết quả bất lợi.",
+      "Mở rộng bằng YOLO26n",
+      "So sánh độ chính xác và gap với hai model trước.",
+      "Phạm vi: 2 miền × 3 model × 3 seed = 18 lượt huấn luyện; mỗi lượt được đánh giá trên cả hai tập đích."
+    ],
+    "tables": [],
+    "notes": "Mục tiêu là xây dựng một so sánh mô tả có thể kiểm tra lại từ các kết quả lưu trữ. Chúng ta dùng hai miền thu nhận tại China của RDD2022, ba biến thể nano và ba seed. Mỗi model được fine-tune độc lập trên một miền, sau đó được chấm trên cả Drone Test và MotorBike Test. Phần mở rộng YOLO26n giữ cùng giao thức để xem kết luận trước đó có còn lặp lại. Nghiên cứu hiện tại không phải so sánh mọi họ detector, chưa thử thích nghi miền, và chưa cung cấp đánh giá được xác nhận trên Czech hoặc India."
+  },
+  {
+    "page": 6,
+    "text": [
+      "03 · DỮ LIỆU NGHIÊN CỨU",
+      "Tập con khóa v4.1 gồm 4.378 ảnh và 658 ảnh test",
+      "Nguồn: paper, Bảng I và phần II · Số ảnh của tập con khóa, không phải toàn bộ RDD2022",
+      "06",
+      "Chia tập theo nhóm cảnh; cùng manifest khóa cho ba model và ba seed.",
+      "Test được giữ cố định theo từng miền để so sánh hai nguồn huấn luyện trên cùng quần thể ảnh."
+    ],
+    "tables": [
+      [
+        [
+          "Miền",
+          "Train",
+          "Validation",
+          "Test",
+          "Tổng"
+        ],
+        [
+          "Drone",
+          "1.680",
+          "360",
+          "361",
+          "2.401"
+        ],
+        [
+          "MotorBike",
+          "1.383",
+          "297",
+          "297",
+          "1.977"
+        ],
+        [
+          "Tổng",
+          "3.063",
+          "657",
+          "658",
+          "4.378"
+        ]
+      ]
+    ],
+    "notes": "RDD2022 là nguồn dữ liệu gốc; các con số trên slide thuộc tập con khóa v4.1 của nghiên cứu. Drone có 1.680 ảnh train, 360 validation và 361 test. MotorBike có 1.383 train, 297 validation và 297 test. Tổng cộng 4.378 ảnh, trong đó 658 ảnh test. Chia tập được thực hiện theo nhóm cảnh dựa trên các liên kết được nhận diện trong đợt rà soát, nhằm giảm trùng cảnh giữa các phân vùng. Quy tắc này bảo vệ các liên kết đã phát hiện, chưa chứng minh loại bỏ hết mọi trùng cảnh tiềm ẩn. Chênh lệch cỡ tập train giữa hai miền vẫn là yếu tố gây nhiễu cần đối chứng."
+  },
+  {
+    "page": 7,
+    "text": [
+      "03 · DỮ LIỆU NGHIÊN CỨU",
+      "Bốn loại hư hỏng được giữ thống nhất trong đánh giá",
+      "Nguồn: ảnh nhãn validation YOLO11n D13/M13 · Crop giữ nhãn gốc; D40 được phóng vùng có nhãn",
+      "07",
+      "D00",
+      "Nứt dọc",
+      "D10",
+      "Nứt ngang",
+      "D20",
+      "Nứt da cá sấu",
+      "D40",
+      "Ổ gà"
+    ],
+    "tables": [],
+    "notes": "Bốn nhãn đích là D00 nứt dọc, D10 nứt ngang, D20 nứt da cá sấu và D40 ổ gà. Đây là các crop từ mosaic nhãn validation lưu trong gói thực nghiệm YOLO11n seed 13, không phải ảnh mới được gán nhãn lại. Riêng D40 phóng vùng có nhãn để nhìn rõ ví dụ; không dùng hình này để suy ra phân bố kích thước. Crop D20 vẫn giữ nhãn D00 xuất hiện cùng ảnh. Các nhãn ngoài bốn lớp như Repair và Block crack đã bị lọc, không ánh xạ sang D40. Chúng ta vẫn giữ D40 trong metric chính dù số lượng hỗ trợ ít và kết quả có thể đảo chiều."
+  },
+  {
+    "page": 8,
+    "text": [
+      "03 · DỮ LIỆU NGHIÊN CỨU",
+      "Số hộp nhãn và mức hỗ trợ lớp khác nhau giữa hai miền",
+      "Nguồn: paper, Bảng II · Số bounding box của bốn lớp trên tập test khóa",
+      "08",
+      "D40 trên Drone",
+      "17 hộp\n9 ảnh",
+      "Phân bố lớp không cân bằng; AP của lớp hiếm có thể nhạy với một số ít phát hiện.",
+      "Không quy toàn bộ khác biệt hiệu năng cho góc nhìn: dữ liệu và thành phần cảnh cùng thay đổi."
+    ],
+    "tables": [
+      [
+        [
+          "Tập đích",
+          "D00",
+          "D10",
+          "D20",
+          "D40"
+        ],
+        [
+          "Drone Test",
+          "214",
+          "189",
+          "44",
+          "17"
+        ],
+        [
+          "MotorBike Test",
+          "403",
+          "165",
+          "96",
+          "35"
+        ]
+      ]
+    ],
+    "notes": "Bảng này đếm hộp nhãn, không phải số ảnh. Drone Test có 214 hộp D00, 189 D10, 44 D20 và 17 D40; MotorBike lần lượt có 403, 165, 96 và 35. Điểm cần nhấn mạnh là D40 trên Drone chỉ có 17 hộp trong 9 ảnh, nhiều ảnh gắn với một nhóm cảnh. Do đó thay đổi AP ở lớp này có thể bị chi phối bởi ít phát hiện. Slide không đưa thống kê kích thước hộp, độ sáng hoặc độ phân giải theo miền vì nguồn hiện tại chưa đo những phân bố đó. Các yếu tố này chỉ là giả thuyết cho phân tích tiếp theo, chưa phải kết quả đã xác nhận."
+  },
+  {
+    "page": 9,
+    "text": [
+      "04 · PHƯƠNG PHÁP NGHIÊN CỨU",
+      "Giao thức hai chiều so sánh trên cùng tập đích",
+      "Nguồn: paper, phần II · Chia tập theo cảnh; checkpoint chọn bằng validation miền nguồn",
+      "09",
+      "Rà soát cảnh",
+      "Giữ nhóm cảnh\ntrong một phân vùng",
+      "→",
+      "Khóa phân vùng",
+      "Train / validation / test\ncho từng miền",
+      "→",
+      "Fine-tune độc lập",
+      "3 model × 2 miền\n× 3 seed",
+      "Trong mỗi cột test, hai mô hình được chấm trên cùng ảnh; ghép cặp theo seed khi tính gap."
+    ],
+    "tables": [
+      [
+        [
+          "Nguồn huấn luyện",
+          "Drone Test · 361 ảnh",
+          "MotorBike Test · 297 ảnh"
+        ],
+        [
+          "Drone",
+          "Cùng miền: D → D",
+          "Xuyên miền: D → M"
+        ],
+        [
+          "MotorBike",
+          "Xuyên miền: M → D",
+          "Cùng miền: M → M"
+        ]
+      ]
+    ],
+    "notes": "Giao thức bắt đầu bằng rà soát liên kết cảnh và khóa phân vùng. Rà soát cũ ghi 735 cặp ưu tiên cao: 629 cùng cảnh, 93 khác cảnh và 13 chưa chắc chắn; số liệu này do tác giả báo cáo, chưa được tái kiểm tra độc lập ở bước làm slide. Mỗi biến thể được fine-tune trên Drone hoặc MotorBike với ba seed. Checkpoint được chọn dựa vào validation miền nguồn, không dùng test để chọn. Bảng 2×2 là trọng tâm: trong cột Drone Test, so D→D với M→D; trong cột MotorBike Test, so M→M với D→M. Cách so sánh này giữ nguyên quần thể test trong từng phép tính gap."
+  },
+  {
+    "page": 10,
+    "text": [
+      "04 · PHƯƠNG PHÁP NGHIÊN CỨU",
+      "Gap được tính bằng chênh lệch trên cùng ảnh đích",
+      "Nguồn: paper, định nghĩa fixed-target gap và Bảng V · Đơn vị gap: điểm phần trăm (pp)",
+      "10",
+      "G(Y) = mAP(Y → Y) − mAP(X → Y)",
+      "Chỉ số chính",
+      "mAP@50:95 (%)\nTrung bình AP của 4 lớp\ntrên các ngưỡng IoU 0,50–0,95",
+      "Cách tổng hợp",
+      "Gap cho từng seed ghép cặp\nBáo cáo trung bình ± SD\nSD qua 3 seed, không phải CI",
+      "G(Y) > 0: huấn luyện trên miền đích có lợi thế; giảm tương đối (%) = 100 × G(Y) / mAP(Y → Y)."
+    ],
+    "tables": [],
+    "notes": "Ký hiệu X là miền còn lại, Y là miền đích đang xét. Với mỗi seed, lấy mAP của model huấn luyện trên Y trừ mAP của model huấn luyện trên X, cùng đánh giá trên Test Y. Sau đó tính trung bình và độ lệch chuẩn mẫu của ba gap ghép cặp. Vì mAP được báo theo phần trăm, phép trừ có đơn vị điểm phần trăm, viết tắt pp. Giảm tương đối phần trăm cần chia cho baseline huấn luyện trên đích; nếu tính từ các mean phải ghi rõ đó là tỷ số của mean. SD mô tả độ biến động giữa ba seed, không phải khoảng tin cậy và chưa đo bất định ở cấp cảnh. mAP@50 được giữ trong paper như chỉ số bổ sung."
+  },
+  {
+    "page": 11,
+    "text": [
+      "05 · MÔ HÌNH VÀ HUẤN LUYỆN",
+      "Ba biến thể nano dùng chung cấu hình fine-tune tường minh",
+      "Nguồn: paper, thiết lập thực nghiệm; data/training_audit.csv · 18/18 log đủ 150 epoch",
+      "11",
+      "YOLO11n",
+      "YOLOv8n",
+      "YOLO26n",
+      "Seed dùng lại: 13, 37, 71; mỗi model có 2 miền huấn luyện × 3 seed = 6 lượt."
+    ],
+    "tables": [
+      [
+        [
+          "Thành phần",
+          "Cấu hình"
+        ],
+        [
+          "Khởi tạo / thư viện",
+          "COCO-pretrained · Ultralytics 8.4.190"
+        ],
+        [
+          "Ngân sách",
+          "150 epoch · batch 8 · ảnh 640 · patience = 0"
+        ],
+        [
+          "Tối ưu",
+          "SGD · lr 0,01 · momentum 0,937 · weight decay 0,0005"
+        ],
+        [
+          "Biến đổi ảnh",
+          "Tắt mosaic, mixup, HSV · translate 0,05 · scale 0,15 · fliplr 0,5"
+        ]
+      ]
+    ],
+    "notes": "Ba model là YOLO11n, YOLOv8n và YOLO26n, đều khởi tạo từ trọng số COCO. Cấu hình fine-tune tường minh được giữ chung: 150 epoch, ảnh 640, batch 8, SGD với lr 0,01, momentum 0,937, weight decay 0,0005, warmup 3 epoch. Các phép mosaic, mixup và HSV bị tắt; translate 0,05, scale 0,15 và fliplr 0,5 vẫn bật. Patience bằng 0 nên không gọi đây là early stopping. Ba seed giống nhau được dùng lại ở từng model và miền, không phải chín seed độc lập. Đây là so sánh ba biến thể cùng họ dưới cấu hình đã ghi, chưa bao quát các detector hoặc chế độ tối ưu khác."
+  },
+  {
+    "page": 12,
+    "text": [
+      "05 · MÔ HÌNH VÀ HUẤN LUYỆN",
+      "Log đủ 150 epoch; đỉnh validation xuất hiện trước khi kết thúc",
+      "Vẽ lại từ log YOLO11n–Drone, seed 13/37/71 · Tương ứng paper, Hình 1; đường không làm mượt",
+      "12",
+      "YOLO11n–Drone: đỉnh mAP validation ở epoch 110 / 92 / 111.",
+      "Các điểm tròn là cực đại mAP validation được ghi trong log; chưa chứng minh hội tụ tối ưu toàn cục."
+    ],
+    "tables": [],
+    "notes": "Đây là ví dụ đại diện YOLO11n huấn luyện trên Drone, ba seed 13, 37 và 71. Hai biểu đồ loss là tổng ba thành phần được ghi: box, cls và dfl. Biểu đồ phải là mAP@50:95 trên validation, không phải trên test. Các đường được vẽ trực tiếp từ CSV, không làm mượt. Điểm tròn đánh dấu mAP validation lớn nhất tại epoch 110, 92 và 111. Tất cả 18 log của nghiên cứu có 150 epoch; trên toàn bộ các lượt, vị trí đỉnh validation nằm trong khoảng 63 đến 133. Việc có đỉnh trước khi kết thúc không tự chứng minh hội tụ toàn cục hay cho phép đổi ngân sách đã dùng."
+  },
+  {
+    "page": 13,
+    "text": [
+      "06 · KẾT QUẢ THỰC NGHIỆM",
+      "Huấn luyện đúng miền đích có lợi thế ở cả ba model",
+      "Nguồn: paper, Bảng III / Hình 4; data/all_metrics.csv · mAP@50:95 (%), trung bình ± SD, n = 3",
+      "13",
+      "Drone Test",
+      "YOLO11n",
+      "22.39 ± 1.82",
+      "7.25 ± 3.64",
+      "YOLOv8n",
+      "21.41 ± 1.71",
+      "6.55 ± 2.59",
+      "YOLO26n",
+      "24.49 ± 0.74",
+      "7.58 ± 0.15",
+      "0",
+      "20",
+      "40",
+      "60",
+      "MotorBike Test",
+      "YOLO11n",
+      "53.08 ± 0.44",
+      "10.15 ± 0.43",
+      "YOLOv8n",
+      "51.25 ± 0.31",
+      "10.01 ± 1.21",
+      "YOLO26n",
+      "54.75 ± 1.24",
+      "12.48 ± 0.13",
+      "0",
+      "20",
+      "40",
+      "60",
+      "Huấn luyện trên miền đích",
+      "Huấn luyện trên miền còn lại",
+      "YOLO26n tăng mean cùng miền so với YOLOv8n: +3,08 pp trên Drone và +3,50 pp trên MotorBike."
+    ],
+    "tables": [],
+    "notes": "Mỗi panel cố định một tập test. Thanh xanh đậm là model được huấn luyện trên chính miền đích; thanh nhạt là model học từ miền còn lại. Vạch sai số là SD qua ba seed, không phải CI. Trên Drone, ba mean cùng miền là 22,39; 21,41; 24,49 phần trăm, còn mean xuyên miền là 7,25; 6,55; 7,58. Trên MotorBike, mean cùng miền là 53,08; 51,25; 54,75, còn xuyên miền là 10,15; 10,01; 12,48. YOLO26n nâng mean cùng miền so với YOLOv8n thêm 3,08 và 3,50 pp. Đây là khác biệt mô tả; chưa có kiểm định để kết luận ưu thế có ý nghĩa thống kê."
+  },
+  {
+    "page": 14,
+    "text": [
+      "06 · KẾT QUẢ THỰC NGHIỆM",
+      "Cả 18 gap theo seed đều dương; MotorBike có gap lớn hơn",
+      "Nguồn: paper, Bảng V–VI; data/fixed_target_gaps_by_seed.csv · Mỗi điểm là một seed; đơn vị pp",
+      "14",
+      "0",
+      "10",
+      "20",
+      "30",
+      "40",
+      "50",
+      "Drone · YOLO11n",
+      "15.13",
+      "Drone · YOLOv8n",
+      "14.86",
+      "Drone · YOLO26n",
+      "16.91",
+      "MotorBike · YOLO11n",
+      "42.94",
+      "MotorBike · YOLOv8n",
+      "41.24",
+      "MotorBike · YOLO26n",
+      "42.27",
+      "Gap TB",
+      "Mean gap: Drone 14,86–16,91 pp; MotorBike 41,24–42,94 pp. Mỗi phép so sánh giữ cùng tập đích."
+    ],
+    "tables": [],
+    "notes": "Biểu đồ hiển thị đủ 18 gap ghép cặp. Mỗi hàng có ba điểm ứng với seed 13, 37 và 71, đoạn nối chỉ biểu diễn khoảng giá trị, không phải CI. Mean gap trên Drone lần lượt là 15,13 ± 3,85; 14,86 ± 1,25; 16,91 ± 0,80 pp. Trên MotorBike là 42,94 ± 0,52; 41,24 ± 1,04; 42,27 ± 1,28 pp. Tất cả điểm đều nằm phía dương. Chênh lệch giữa hai mean gap đích đạt 25,36 đến 27,80 pp tùy model. Đây là bất đối xứng gắn với miền trong dữ liệu hiện tại, chưa cô lập tác động góc nhìn hoặc cỡ tập nguồn."
+  },
+  {
+    "page": 15,
+    "text": [
+      "06 · KẾT QUẢ THỰC NGHIỆM",
+      "D20 trên MotorBike mất nhiều AP; D40 trên Drone đảo chiều",
+      "Nguồn: paper, Bảng VII / Hình 3; AP@50:95 mean qua 3 seed · Gap tính trên cùng tập đích",
+      "15",
+      "Gap theo lớp trên MotorBike Test (pp)",
+      "0",
+      "20",
+      "40",
+      "60",
+      "D00",
+      "D10",
+      "57.7",
+      "53.2",
+      "56.4",
+      "D20",
+      "D40",
+      "YOLO11n",
+      "YOLOv8n",
+      "YOLO26n",
+      "Ngoại lệ D40 · Drone",
+      "YOLO11n   −6,61 pp\nYOLOv8n   −9,74 pp\nYOLO26n   −1,95 pp",
+      "Hỗ trợ thưa: 17 hộp / 9 ảnh.\nGiữ nguyên kết quả này.",
+      "D20 trên MotorBike: giảm AP tương đối 96,14–98,30% so với baseline huấn luyện trên MotorBike."
+    ],
+    "tables": [],
+    "notes": "Trên MotorBike Test, D20 có lợi thế huấn luyện đúng miền rất lớn: 57,72 pp với YOLO11n, 53,21 với YOLOv8n và 56,45 với YOLO26n. Tỷ lệ giảm so với AP của baseline huấn luyện trên MotorBike lần lượt khoảng 98,30%, 96,14% và 97,34%. Tuy nhiên, xu hướng tổng thể không đúng cho mọi lớp trên mọi đích. Với D40 của Drone Test, mean gap là âm: −6,61; −9,74; −1,95 pp. Kết quả này được giữ nguyên, không sửa nhãn hoặc bỏ lớp để cải thiện metric. Vì lớp D40 trên Drone có ít hộp và ít cảnh, chưa giải thích đảo chiều bằng một cơ chế thị giác hay đặc tính kiến trúc cụ thể."
+  },
+  {
+    "page": 16,
+    "text": [
+      "06 · KẾT QUẢ THỰC NGHIỆM",
+      "Lọc ảnh có nhãn ngoài phạm vi vẫn giữ chiều gap",
+      "Nguồn: paper, phần IV; data/gap_summary.csv · Clean-only: Drone 273 ảnh, MotorBike 271 ảnh",
+      "16",
+      "Cả 18 so sánh clean-only vẫn dương; bảng ghi mean gap (pp), n = 3.",
+      "Clean-only thay đổi thành phần ảnh test; chưa thể quy phần thay đổi metric chỉ cho tác động của nhãn bị lọc."
+    ],
+    "tables": [
+      [
+        [
+          "Model",
+          "Drone: full",
+          "Drone: clean",
+          "MotorBike: full",
+          "MotorBike: clean"
+        ],
+        [
+          "YOLO11n",
+          "15.13",
+          "14.93",
+          "42.94",
+          "43.86"
+        ],
+        [
+          "YOLOv8n",
+          "14.86",
+          "15.25",
+          "41.24",
+          "41.87"
+        ],
+        [
+          "YOLO26n",
+          "16.91",
+          "16.59",
+          "42.27",
+          "42.60"
+        ]
+      ]
+    ],
+    "notes": "Phần đánh giá mở rộng của cấu trúc cũ được cập nhật thành kiểm tra độ nhạy có bằng chứng hiện tại, không dùng kết quả Czech hoặc India chưa xác nhận. Clean-only giữ các ảnh không có annotation ngoài bốn lớp mục tiêu; không có nghĩa mỗi ảnh chứa đủ bốn lớp. Số ảnh còn lại là 273 Drone và 271 MotorBike. Bảng so mean gap full và clean-only; cả 18 gap clean-only theo seed vẫn dương. Với YOLO26n, mean gap clean-only là 16,59 pp trên Drone và 42,60 pp trên MotorBike. Vì quần thể ảnh đã thay đổi, không diễn giải chênh lệch full/clean như ước lượng riêng của ảnh hưởng nhãn ngoài phạm vi."
+  },
+  {
+    "page": 17,
+    "text": [
+      "06 · KẾT QUẢ THỰC NGHIỆM",
+      "Ảnh lưu trữ minh họa nhãn thật và dự đoán validation",
+      "Nguồn: YOLO11n MotorBike seed 13 · run/val_batch0_{labels,pred}.jpg · China_MotorBike_001773.jpg",
+      "17",
+      "Nhãn thật (GT)",
+      "Dự đoán được lưu",
+      "Cùng một ảnh\nCùng miền nguồn\nKhung và điểm\ngiữ như bản lưu",
+      "Ví dụ minh họa validation; chưa thay thế kiểm tra FP/FN độc lập trên ảnh test xuyên miền."
+    ],
+    "tables": [],
+    "notes": "Hai panel lấy từ cùng ảnh China_MotorBike_001773.jpg trong mosaic validation của YOLO11n huấn luyện trên MotorBike, seed 13. Panel trái là nhãn thật; panel phải là dự đoán và điểm tin cậy do bản lưu gốc hiển thị. Có thể quan sát sự khác nhau giữa khung/nhãn được vẽ ở vùng nứt phía dưới, nhưng chưa tổng quát thành tỷ lệ lỗi hoặc nguyên nhân suy giảm. Không gọi đây là minh họa test xuyên miền. Bộ lưu trữ hiện tại chưa cung cấp một audit FP/FN độc lập theo từng ảnh test và chưa chạy lại suy luận từ checkpoint trong lần phân tích này. Mục đích slide là cho thấy dạng đầu ra và sự cần thiết của bước kiểm chứng trực quan tiếp theo."
+  },
+  {
+    "page": 18,
+    "text": [
+      "07 · HẠN CHẾ CỦA NGHIÊN CỨU",
+      "Bằng chứng còn bị giới hạn bởi cảnh, nguồn và cách kiểm chứng",
+      "Nguồn: paper, phần V · Giới hạn được giữ cùng các kết quả thuận và bất lợi",
+      "18",
+      "Yếu tố cùng thay đổi",
+      "Góc nhìn, cỡ tập train, cảnh và phân bố lớp chưa được tách riêng.",
+      "Phạm vi lặp lại hẹp",
+      "Ba seed và ba biến thể cùng họ; SD chưa phản ánh bất định theo cảnh.",
+      "Kiểm soát cảnh chưa tuyệt đối",
+      "Bảo vệ liên kết đã nhận diện; từng xem một số ảnh MotorBike trước khi khóa split.",
+      "Chưa replay độc lập",
+      "Chưa chạy lại inference/test hoặc audit ảnh–XML; D40 trên Drone có hỗ trợ thưa."
+    ],
+    "tables": [],
+    "notes": "Các kết quả là liên hệ mô tả giữa miền huấn luyện và hiệu năng. Cỡ tập train, cảnh, hình học thu nhận và phân bố lớp cùng biến đổi nên chưa tách tác động riêng. Ba seed và ba biến thể nano cho kiểm tra lặp lại trong phạm vi hẹp, chưa chứng minh tổng quát cho mọi detector. Rà soát cảnh chỉ kiểm soát các liên kết đã nhận diện. Một số ảnh MotorBike đã được gặp khi phân tích thăm dò trước khi khóa split, nên không tuyên bố holdout hoàn toàn chưa từng được xem. Phân tích hiện tại kiểm tra và tính lại bảng metric đã lưu, chưa độc lập chạy lại mọi checkpoint trên ảnh gốc hoặc replay audit XML. D40 hiếm và việc clean-only đổi quần thể ảnh cũng hạn chế diễn giải."
+  },
+  {
+    "page": 19,
+    "text": [
+      "08 · KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN",
+      "YOLO26n tăng điểm tuyệt đối, gap xuyên miền vẫn lớn",
+      "Nguồn: paper, Kết luận; Bảng III, V, VI, VII · Các kết luận mang tính mô tả trên split khóa",
+      "19",
+      "14,86–16,91 pp",
+      "Mean gap trên Drone Test",
+      "41,24–42,94 pp",
+      "Mean gap trên MotorBike Test",
+      "18/18 so sánh dương",
+      "Lặp lại ở ba model.\nD20 dễ tổn thương trên MotorBike.\nD40 hiếm trên Drone có đảo chiều.",
+      "Đóng góp: giao thức hai chiều trên cùng tập đích, minh bạch theo seed và kiểm tra lặp lại với YOLO26n."
+    ],
+    "tables": [],
+    "notes": "Kết luận thứ nhất: trên tập con scene-aware khóa, model được huấn luyện đúng miền đích có lợi thế tổng thể trong cả 18 so sánh. Mean gap trên Drone là 14,86–16,91 pp, trên MotorBike là 41,24–42,94 pp. Kết luận thứ hai: ba model lặp lại xu hướng nhưng từng lớp có hành vi khác nhau, nổi bật là D20 trên MotorBike và đảo chiều D40 hiếm trên Drone. Kết luận thứ ba: YOLO26n nâng mean độ chính xác cùng miền so với YOLOv8n nhưng chưa giải quyết được gap. Đóng góp chính là một giao thức có thể kiểm tra từ kết quả theo seed trên cùng tập đích, không tuyên bố kiến trúc mới hay chứng minh nguyên nhân góc nhìn."
+  },
+  {
+    "page": 20,
+    "text": [
+      "08 · KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN",
+      "Bước tiếp theo: kiểm chứng độc lập và tách yếu tố gây nhiễu",
+      "Nguồn: paper, Thảo luận và hướng phát triển · Các mục dưới đây là công việc đề xuất",
+      "20",
+      "01",
+      "Kiểm chứng dự đoán",
+      "Replay checkpoint; lưu dự đoán từng ảnh; audit FP/FN và bootstrap theo cảnh.",
+      "02",
+      "Bổ sung đối chứng",
+      "Cân bằng cỡ tập nguồn; thu cùng đoạn đường với nhiều góc nhìn.",
+      "03",
+      "Mở rộng có kiểm soát",
+      "Rà ontology nhãn trước khi đánh giá Czech, India hoặc bộ dữ liệu độc lập.",
+      "04",
+      "Thử biện pháp cải thiện",
+      "Huấn luyện đa miền hoặc thích nghi miền; chấm lại bằng giao thức cố định.",
+      "Trao đổi: đối chứng nào cần được ưu tiên trước khi khẳng định khả năng triển khai?"
+    ],
+    "tables": [],
+    "notes": "Ưu tiên đầu tiên là kiểm chứng độc lập: chạy lại suy luận từ checkpoint trên test gốc, lưu đầu ra từng ảnh và kiểm tra lỗi, sau đó ước lượng bất định theo cảnh. Thứ hai là cân bằng cỡ tập huấn luyện để kiểm tra vai trò lượng dữ liệu. Thu ảnh ghép cặp trên cùng đoạn đường bằng các thiết bị hoặc góc nhìn khác nhau sẽ giúp tách hình học thu nhận. Thứ ba là mở rộng Czech, India hoặc dữ liệu ngoài RDD2022, nhưng cần audit ontology nhãn trước khi gộp vào bằng chứng. Cuối cùng mới thử huấn luyện đa miền hoặc thích nghi miền và đánh giá theo đúng split, seed và metric đã khóa. Đây là hướng đề xuất, chưa phải thực nghiệm đã hoàn tất."
+  }
+]

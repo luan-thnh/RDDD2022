@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Arial, Liberation Sans, sans-serif" font-size="26.67" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#FFFFFF"/>
+<g id="header" data-pptx-bounds="56 20 1168 142" fill="#173348"><text x="56" y="43" font-size="14" fill="#127B80" font-weight="bold">05 · MÔ HÌNH VÀ HUẤN LUYỆN</text><text x="1224" y="43" text-anchor="end" font-size="18" fill="#127B80">11</text><text x="56" y="101" font-family="Georgia, Liberation Serif, serif" font-size="40">Ba biến thể nano dùng chung cấu hình fine-tune<tspan x="56" dy="47">tường minh</tspan></text></g>
+<g id="model-masthead" data-pptx-bounds="56 191 1168 63" font-size="36" font-weight="bold"><text x="56" y="229" fill="#176B87">YOLO11n</text><text x="492" y="229" fill="#61899C">YOLOv8n</text><text x="929" y="229" fill="#D89335">YOLO26n</text><line x1="56" y1="253" x2="1224" y2="253" stroke="#DCE6EC"/></g>
+<g id="data-table" data-pptx-bounds="56 285 1168 290" data-pptx-replace-with="table" fill="#173348" font-size="22" data-pptx-fallback-sha256="abecc7a3c36b0400ae6bcab7565815c4963ecbd3b9bf0318aa62671998514eb1">
+<metadata type="application/json">{"schema":"ppt-master.semantic-table.v2","name":"data-table","x":56,"y":285,"width":1168,"height":290,"columns":[{"text":"Thành phần","align":"l","bold":true},{"text":"Cấu hình","align":"l","bold":true}],"rows":[["Khởi tạo / thư viện","COCO-pretrained · Ultralytics 8.4.190"],["Ngân sách","150 epoch · batch 8 · ảnh 640 · patience = 0"],["Tối ưu","SGD · lr 0,01 · momentum 0,937 · weight decay 0,0005"],["Biến đổi ảnh","Tắt mosaic, mixup, HSV · translate 0,05 · scale 0,15 · fliplr 0,5"]],"column_widths":[290,878],"row_heights":[58,58,58,58,58],"defaults":{"cell":{"align":"l","valign":"middle","padding":16,"borders":{"left":{"style":"none"},"right":{"style":"none"},"top":{"style":"none"},"bottom":{"style":"none"}}}},"style":{"font_family":"Arial","font_size":22,"header_fill":"#F2F7F7","header_text":"#173348","body_fill":"#FFFFFF","body_text":"#173348","band_row":false}}</metadata>
+<rect x="56" y="285" width="1168" height="58" fill="#F2F7F7"/>
+<g id="config-header" font-weight="bold"><text x="72" y="323">Thành phần</text><text x="362" y="323">Cấu hình</text></g>
+<g id="initialization"><text x="72" y="381">Khởi tạo / thư viện</text><text x="362" y="381">COCO-pretrained · Ultralytics 8.4.190</text></g>
+<g id="budget"><text x="72" y="439">Ngân sách</text><text x="362" y="439">150 epoch · batch 8 · ảnh 640 · patience = 0</text></g>
+<g id="optimization"><text x="72" y="497">Tối ưu</text><text x="362" y="497">SGD · lr 0,01 · momentum 0,937 · weight decay 0,0005</text></g>
+<g id="augmentation"><text x="72" y="555">Biến đổi ảnh</text><text x="362" y="555">Tắt mosaic, mixup, HSV · translate 0,05 · scale 0,15 · fliplr 0,5</text></g>
+</g>
+<g id="matched-seeds" data-pptx-bounds="56 613 1168 49" fill="#127B80"><text x="56" y="645" font-size="22" font-weight="bold">Seed dùng lại: 13, 37, 71; mỗi model có 2 miền huấn luyện × 3 seed = 6 lượt.</text></g>
+<g id="source" data-pptx-bounds="56 678 1168 28" fill="#536778" font-size="12"><line x1="56" y1="679" x2="1224" y2="679" stroke="#DCE6EC"/><text x="56" y="700">Nguồn: paper, thiết lập thực nghiệm; data/training_audit.csv · 18/18 log đủ 150 epoch</text></g>
+</svg>
