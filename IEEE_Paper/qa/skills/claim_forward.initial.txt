@@ -1,0 +1,2 @@
+% CLAIM-FORWARD [Script]: section=all terms=yaml
+% CLAIM-FORWARD: No claim-forward patterns detected.

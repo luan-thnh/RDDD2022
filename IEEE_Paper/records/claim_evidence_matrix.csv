@@ -1,0 +1,10 @@
+claim,evidence,status
+18trainingruns;3models;3seeds;2sources,data/run_identities.json;training_audit.csv,ARCHIVED_RECORDS_VERIFIED
+All18fulltestfixedtargetgapspositive,data/all_metrics.csv;qa/verification.json,RECOMPUTED_FROM_ARCHIVED_METRICS
+YOLO26gaps16.91/42.27pp,main.tex TablesV–VI;data/all_metrics.csv,RECOMPUTED
+D20MotorBikeclassdrop96.14–98.30percent,main.tex TableVII;data/all_metrics.csv,RATIO_OF_CLASS_MEANS_ON_FIXED_TARGET
+YOLO26highestindomainmeanMAP;notbestineveryclass,"main.tex TablesIII,VII",SUPPORTED_MEANS_NOT_SIGNIFICANCE_CLAIM
+Scale/context/texturecausality,Discussion;noisolatingexperiment,HYPOTHESIS_ONLY
+Scene review735pairs/supportcounts,AuthorbaselineDataandAuditProtocol,AUTHOR_REPORTED_NOT_REAUDITED
+Novelty/SOTA/architecturecausality,No systematicnoveltyorcomponentstudy,NOT_CLAIMED
+Correctflow andoriginalprotectedcontent,qa/flow_contract.csv;qa/verification.json,SOURCE_DIFF_AND_TESTS_VERIFIED

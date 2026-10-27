@@ -4,6 +4,8 @@ __pycache__/
 venv/
 .DS_Store
 IEEE_Paper_Light/build/
+IEEE_Paper/build/
+IEEE_Paper/qa/pages/
 *.aux
 *.bbl
 *.bcf

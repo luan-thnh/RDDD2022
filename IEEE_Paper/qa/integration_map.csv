@@ -1,0 +1,41 @@
+anchor,change_reason
+toolchain-fonts,Resolve the Unicode author-name problem recorded in the conversation.
+toolchain-bibliography,Use available BibTeX tooling; preserve all original citation keys.
+unused-siunitx,Remove unused package dependency; no scientific text or units change.
+abstract,Complete the agreed concise Objective–Methods–Results–Contribution abstract with correct three-model evidence.
+keywords,Add the third evaluated model.
+introduction-RQs,Complete the four-RQ and explicit contribution updates already introduced in the conversation.
+related-consensus,Keep Consensus paragraph; remove the misplaced use of COCO as a shift benchmark.
+related-tradeoff-evolution,Retain Trade-off paragraph and add the YOLO-evolution paragraph requested in the ongoing edit; remove causal attribution claim.
+related-gap,Preserve the research-gap role while removing an unverified universal no-prior-study assertion.
+related-this-paper,Extend the original positioning paragraph and restore COCO citation to its proper pretraining role.
+dataset-source,Address the earlier request to state the public dataset source and distinguish the derived partition.
+training-model,Add verified initial checkpoint.
+training-count,Update experimental run count.
+metric-units,Clarify units for pp subtraction without changing the equation.
+tab:matrix,Add YOLO26 and use recomputed means/sample SDs; preserve table in main.
+tab:map50,Add YOLO26 and use recomputed means/sample SDs; preserve table in main.
+tab:paired,Add YOLO26 and use recomputed means/sample SDs; preserve table in main.
+tab:seeds,Add YOLO26 and use recomputed means/sample SDs; preserve table in main.
+seed-caption,Update seed-specific paired comparison count.
+tab:classap,Add YOLO26 and use recomputed means/sample SDs; preserve table in main.
+results-RQ1,Append the new model result to the original RQ1 account.
+results-training,Retain convergence analysis and its original representative experiment; correct early-stopping/epoch/variance claims.
+training-caption,Make the original caption match the actual light three-panel training figure.
+results-RQ2,Append verified YOLO26 seed gaps; preserve the original seed-resolved evidence in main.
+results-RQ3-a,Extend class analysis while retaining the original sparse-D40 discussion.
+results-RQ3-b,Use the measured class contrasts without inventing a causal mechanism.
+results-RQ4,Complete the existing RQ4 and domain-comparison-figure integration from the conversation; add no duplicate training figure.
+results-sensitivity,Update the original sensitivity paragraph with the verified third-model result.
+discussion-heading,Follow the conversation's explicit Discussion/Limitations/Threats organization.
+discussion-central,Extend the original central interpretation without replacing its role.
+discussion-factors,Keep the original three-factor discussion and correct its evidence level and fixed-target class numbers.
+discussion-prior-work,Retain prior-work comparison; fix misplaced COCO citation and 12.24-pp asymmetry interpretation.
+discussion-limitations-threats,Complete the already-planned Limitations/Threats split while retaining each material boundary once.
+discussion-run-count,Update the original future-control paragraph.
+discussion-close,Apply claim-forward guidance: retain boundaries in named sections and close with the supported contribution and next test.
+conclusion-results,"Close the four RQs with the verified three-model evidence, retaining the original conclusion format."
+conclusion-implications,Keep practical implications and future-work flow; remove the unsupported equivalence between mAP and detection rate.
+declarations,Retain author-supplied provenance and declaration boundary; disclose the actual editing assistance.
+bibliography-output,Complete the supported local bibliography toolchain.
+skill-semantic-polish,"Make the already-supported background, objective and contribution explicit; retain all results and evidence boundaries."

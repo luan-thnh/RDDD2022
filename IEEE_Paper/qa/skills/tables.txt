@@ -1,0 +1,9 @@
+============================================================
+Table Structure Check Report
+============================================================
+File: /workspace/paper_finalization/IEEE_Paper_Final/main.tex
+Tables found: 7
+Status: PASS
+Issues: 0
+
+============================================================

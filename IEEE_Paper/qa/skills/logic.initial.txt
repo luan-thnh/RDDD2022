@@ -1,0 +1,5 @@
+% LOGIC [Severity: Major] [Priority: P1]: Abstract, contribution claims, and conclusion may be misaligned.
+% Observation: abstract missing contribution claim; conclusion missing contribution response.
+% Suggested: Make sure all three sections consistently state the problem, method, key results, and contribution.
+% Rationale: These sections should tell the same core story with different emphasis, not diverge.
+

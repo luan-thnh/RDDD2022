@@ -1,0 +1,240 @@
+Rc files read:
+  /etc/LatexMk
+Latexmk: This is Latexmk, John Collins, 11 Dec. 2024. Version 4.86.
+Latexmk: applying rule 'xelatex'...
+Rule 'xelatex':  Reasons for rerun
+Changed files or newly in use/created:
+  figures/class_gap_motorbike.pdf
+  figures/domain_comparison.pdf
+  figures/paired_gaps_comparison.pdf
+  figures/training_curves.pdf
+Category 'changed_user':
+  figures/class_gap_motorbike.pdf
+  figures/domain_comparison.pdf
+  figures/paired_gaps_comparison.pdf
+  figures/training_curves.pdf
+
+------------
+Run number 1 of rule 'xelatex'
+------------
+------------
+Running 'xelatex -no-shell-escape -no-pdf -interaction=nonstopmode -file-line-error -synctex=1 -recorder -output-directory="build"  "/workspace/paper_finalization/IEEE_Paper_Final/main.tex"'
+------------
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex)
+entering extended mode
+(/workspace/paper_finalization/IEEE_Paper_Final/main.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(./IEEEtran.clsFontconfig error: No writable cache directories
+
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+
+LaTeX Font Warning: Font shape `TU/ptm/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 503.
+
+-- Using 210mm x 297mm (a4) paper.
+-- Using DVI output.
+-- This is a 10 point document.
+
+LaTeX Font Warning: Font shape `TU/ptm/bx/n' undefined
+(Font)              using `TU/ptm/m/n' instead on input line 1090.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/m/it' undefined
+(Font)              using `TU/ptm/m/n' instead on input line 1090.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/bx/it' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 1090.
+
+)
+** ATTENTION: Overriding command lockouts (line 2).
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-xetex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(build/main.aux)
+-- Lines per column: 56 (exact).
+(build/main.out) (build/main.out)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+
+[1]
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+[]\TU/LiberationSerif(0)/b/n/10 This paper. \TU/LiberationSerif(0)/m/n/10 We ad
+dress the gap by measuring
+
+Underfull \hbox (badness 5832) in paragraph at lines 48--49
+\TU/LiberationSerif(0)/m/n/10 bidirectional fixed-target transfer between China
+_Drone
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+\TU/LiberationSerif(0)/m/n/10 and China_MotorBike subsets, using COCO-pretraine
+d
+
+Underfull \hbox (badness 2772) in paragraph at lines 48--49
+\TU/LiberationSerif(0)/m/n/10 three independently fine-tuned compact YOLO varia
+nts.
+
+Underfull \hbox (badness 4846) in paragraph at lines 48--49
+\TU/LiberationSerif(0)/m/n/10 that measures asymmetry magnitude and class-speci
+fic
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+[]\TU/LiberationSerif(0)/m/n/10 We use the China_Drone (2,401 images) and
+
+Underfull \hbox (badness 3884) in paragraph at lines 52--53
+\TU/LiberationSerif(0)/m/n/10 released RDD2022 dataset [[]2[]]. The train/valid
+ation/test
+
+Underfull \hbox (badness 2495) in paragraph at lines 52--53
+\TU/LiberationSerif(0)/m/n/10 defect or roadway site. The source domains differ
+ in
+
+Underfull \hbox (badness 1917) in paragraph at lines 52--53
+\TU/LiberationSerif(0)/m/n/10 acquisition platform and potentially in location,
+ surface
+
+
+Underfull \hbox (badness 4378) in paragraph at lines 82--83
+[]\TU/LiberationSerif(0)/m/n/10 Each architecture is initialized from its own f
+ixed
+
+[2]
+
+Underfull \hbox (badness 1360) in paragraph at lines 148--149
+\TU/LiberationSerif(0)/m/n/10 target gaps are 40.39, 42.40, and 40.93 pp. YOLO2
+6n
+
+[3]
+
+Underfull \hbox (badness 1466) in paragraph at lines 217--218
+\TU/LiberationSerif(0)/m/n/10 lish global convergence. Clean-only evaluations p
+reserve
+
+[4]
+
+Underfull \hbox (badness 1360) in paragraph at lines 224--225
+[]\TU/LiberationSerif(0)/b/n/10 Comparison with prior work. \TU/LiberationSerif
+(0)/m/n/10 Our findings support
+
+[5]
+
+Underfull \hbox (badness 5592) in paragraph at lines 239--240
+[]\TU/LiberationSerif(0)/b/n/10 Practical implications: \TU/LiberationSerif(0)/
+m/n/10 Practitioners deploying road-
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[6] (build/main.bbl
+Underfull \hbox (badness 1701) in paragraph at lines 45--48
+[]\TU/LiberationSerif(0)/m/n/8 Ultralytics, “YOLO26 model documentation.” []$[]
+[][][][] [] [] [] [][][][] [] [][][][][][][][][][][] []
+)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+
+
+[7] (build/main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+Output written on build/main.xdv (7 pages, 302896 bytes).
+SyncTeX written on build/main.synctex.gz.
+Transcript written on build/main.log.
+Latexmk: Getting log file 'build/main.log'
+Latexmk: Examining 'build/main.fls'
+Latexmk: Examining 'build/main.log'
+Latexmk: Found input bbl file 'build/main.bbl'
+Latexmk: Log file says output to 'build/main.xdv'
+Latexmk: Found bibliography file(s):
+  ./references.bib
+Latexmk: applying rule 'xdvipdfmx'...
+Rule 'xdvipdfmx':  Reasons for rerun
+Changed files or newly in use/created:
+  build/main.xdv
+Category 'changed_source_rules':
+  xelatex
+
+------------
+Run number 1 of rule 'xdvipdfmx'
+------------
+------------
+Running 'xdvipdfmx -E -o "build/main.pdf"  "build/main.xdv"'
+------------
+build/main.xdv -> build/main.pdf
+[1][2][3][4][5][6][7]
+185934 bytes written
+Latexmk: All targets (build/main.xdv build/main.pdf) are up-to-date
+
+[INFO] Compiling main.tex with xelatex
+[INFO] Working directory: /workspace/paper_finalization/IEEE_Paper_Final
+
+[SUCCESS] PDF generated: /workspace/paper_finalization/IEEE_Paper_Final/main.pdf

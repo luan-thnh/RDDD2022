@@ -1,0 +1,83 @@
+[
+  {
+    "check": "bibliography",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/verify_bib.py",
+      "references.bib",
+      "--tex",
+      "main.tex"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/bibliography.txt"
+  },
+  {
+    "check": "figures",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/check_figures.py",
+      "main.tex"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/figures.txt"
+  },
+  {
+    "check": "tables",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/check_tables.py",
+      "main.tex"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/tables.txt"
+  },
+  {
+    "check": "abstract",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/analyze_abstract.py",
+      "main.tex",
+      "--max-words",
+      "250"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/abstract.txt"
+  },
+  {
+    "check": "claim_forward",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/check_claim_forward.py",
+      "main.tex"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/claim_forward.txt"
+  },
+  {
+    "check": "logic",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/analyze_logic.py",
+      "main.tex"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/logic.txt"
+  },
+  {
+    "check": "experiments",
+    "command": [
+      "/workspace/paper_finalization/.venv/bin/python",
+      "-B",
+      "/workspace/paper_finalization/skills/paper-skills/latex-paper-en/scripts/analyze_experiment.py",
+      "main.tex"
+    ],
+    "exit_code": 0,
+    "output_file": "qa/skills/experiments.txt"
+  }
+]

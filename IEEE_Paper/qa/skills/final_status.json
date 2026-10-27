@@ -1,0 +1,13 @@
+{
+  "compile": "exit0;latexmkthroughskillrunner;7pages",
+  "bibliography": "10validentries;0missingkeys;1unusedoriginalentry;metadatarecommendationsremain",
+  "figures": "4pathsPASS",
+  "tables": "7PASS",
+  "abstract": "5elementsPRESENT;206heuristicwords",
+  "claim_forward": "Norulebasedpatterns",
+  "logic": "Norulebasedcoherenceissues",
+  "experiments": "Heuristicwarningsmanuallytriaged;seefindings_resolution.md",
+  "figure_source_preflight": "21pass0warn0fail",
+  "rendered_figures": "4collisionPASS;glyphminimum7pt;freshalignmentreports",
+  "statistical_and_source_verification": "qa/verification.json:passed"
+}

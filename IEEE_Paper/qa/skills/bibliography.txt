@@ -1,0 +1,18 @@
+BibTeX Check: /workspace/paper_finalization/IEEE_Paper_Final/references.bib
+Status: WARNING
+Total entries: 10
+Valid entries: 10
+TeX file: /workspace/paper_finalization/IEEE_Paper_Final/main.tex
+missing_in_bib: 0
+unused_in_tex: 1
+
+Issues:
+  [INFO] @koh2021wilds: [IEEE] 23 authors listed; style uses et al. after 6. Ensure bibliography style handles truncation.
+  [WARNING] @koh2021wilds: [IEEE] DOI recommended for inproceedings entries.
+  [INFO] @lin2014coco: [IEEE] 8 authors listed; style uses et al. after 6. Ensure bibliography style handles truncation.
+  [INFO] @wang2025yolord: [IEEE] 9 authors listed; style uses et al. after 6. Ensure bibliography style handles truncation.
+  [WARNING]: Unused BibTeX entries: ultralyticsmetrics
+
+[INFO] 1 entries missing DOI/URL (Use --online-check to export list)
+[TIP] AI-generated citations have ~40% error rate. Verify entries without DOI/URL using Semantic Scholar API or CrossRef. See references/citations/verification.md for verification workflow.
+[INFO] unused_in_tex keys: ultralyticsmetrics

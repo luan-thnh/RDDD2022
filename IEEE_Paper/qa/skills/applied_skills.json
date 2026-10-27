@@ -1,0 +1,14 @@
+[
+  {
+    "skill": "latex-paper-en",
+    "sha256": "36e081ad6dfa2b70b0f78fd71296aa6a2db2fcf00ff166f0240d05cfee4f6f7f"
+  },
+  {
+    "skill": "academic-paper-review",
+    "sha256": "a0285baaeacc916bf45751c06db37745b195ddd4ec30e271ec1472f6cd48e8aa"
+  },
+  {
+    "skill": "nature-figure",
+    "sha256": "46f2cf74d473604ff9ad884893bbe2360b3431fec631009fce5c487945acf652"
+  }
+]

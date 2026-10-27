@@ -1,0 +1,30 @@
+============================================================
+Abstract Structure Diagnosis
+============================================================
+File: /workspace/paper_finalization/IEEE_Paper_Final/main.tex
+Language: en
+Status: PASS
+
+------------------------------------------------------------
+Element Diagnosis
+------------------------------------------------------------
+
+  Background  : [PRESENT ]
+    Evidence: "Road-damage detectors are often evaluated on imagery resembling their training data; however, deployment across camer..."
+
+  Objective   : [PRESENT ]
+    Evidence: "This study aims to quantify the magnitude, asymmetry, and class dependence of cross-domain transfer between the China..."
+
+  Methods     : [PRESENT ]
+    Evidence: "Road-damage detectors are often evaluated on imagery resembling their training data; however, deployment across camer..."
+
+  Results     : [PRESENT ]
+    Evidence: "Road-damage detectors are often evaluated on imagery resembling their training data; however, deployment across camer..."
+
+  Conclusion  : [PRESENT ]
+    Evidence: "Our contribution is a reproducible bidirectional protocol and a three-variant replication of domain-associated asymme..."
+
+------------------------------------------------------------
+  Words: 206 (limit: 150–250) [PASS]
+
+============================================================

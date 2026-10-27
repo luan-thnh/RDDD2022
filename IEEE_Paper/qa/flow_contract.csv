@@ -1,0 +1,12 @@
+item,author_flow,implemented,evidence
+Baseline,Use the newly supplied source before YOLO26,Actual baseline files retained unchanged,provenance/before_yolo26/
+Public dataset/data handling,"Original request: light figures, public dataset and processing context",Keep source/audit/ontology/count tables; add public-source/derived-v4.1 clarification,main.tex Section III
+YOLO26 addition,Question about adding completed3seedYOLO26 to strengthen evidence; option A accepted,"Add sixYOLO26runs into same matrix, seed gaps, class AP and existing protocol",main.tex Sections IV–V
+Four-RQ extension,Ongoing edit expanded to RQ4 and a three-model comparison,Four-RQ Intro aligns with RQ1–RQ4 Results and Conclusion,"main.tex Sections I,V,VII"
+Literature flow,Keep Consensus→Trade-off→Gap→This paper; add YOLO evolution,Roles retained; unsupported universal novelty/causal statements calibrated,main.tex Section II
+Claim-forward abstract/conclusion,Concise objective/results/contribution alignment in ongoing edit,"206word heuristic count, explicit objective and contribution, grounded numerical summary",qa/skills/abstract.txt;logic.txt;claim_forward.txt
+Main evidence placement,Preserve original manuscript evidence,Seven tables remain in main; no imposed supplementary allocation,main.tex Tables I–VII
+Figures,Light theme; unresolved paths and duplicate training/labels in conversation,Four unique local paths; training/class/gap/domain-comparison captions match data,figures/;qa/figures/
+Discussion,Keep scale/context/class interpretation and prior-work comparison,Interpretations retained as testable hypotheses; comparison retained with correct citation roles,main.tex Section VI
+Validity organization,Ongoing edit requested Limitations and Threats separation,Complete both subsections without deleting material boundaries,main.tex Section VI.A–B
+Protected content,Do not substitute an assistant-made manuscript for the author baseline,Title/authors/equations/labels/originalcitedkeys and count/support tables verified preserved,qa/verification.json

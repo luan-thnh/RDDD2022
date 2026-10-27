@@ -1,0 +1,212 @@
+\documentclass[conference,a4paper]{IEEEtran}
+\IEEEoverridecommandlockouts
+% Font packages removed - using IEEEtran default Times font for pdfLaTeX compatibility
+\usepackage{seqsplit}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,multirow,array}
+\usepackage{url}
+\usepackage{balance}
+\usepackage[backend=biber,style=ieee,sorting=none,giveninits=true,maxbibnames=6,doi=true,url=true]{biblatex}
+\addbibresource{references.bib}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\newcommand{\map}{\mathrm{mAP}}
+\newcommand{\AP}{\mathrm{AP}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\M}{\mathrm{M}}
+\title{How Much Does Road-Damage Detection Degrade Across Acquisition Domains?\\A Scene-Aware Bidirectional Evaluation on RDD2022}
+\author{\IEEEauthorblockN{Lê Thành Luân\IEEEauthorrefmark{1}, Phạm Bá Anh Tuấn\IEEEauthorrefmark{2}}\IEEEauthorblockA{University of Science and Technology -- The University of Danang, Da Nang, Vietnam\\\IEEEauthorrefmark{1}102250416@hv.dut.udn.vn; \IEEEauthorrefmark{2}102250421@hv.dut.udn.vn}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Road-damage detectors are often evaluated on imagery collected under conditions resembling the training data. Their performance under a change of acquisition domain can be markedly different. \textbf{This study aims to quantify the magnitude and asymmetry of domain shift when deploying road-damage detectors across different camera platforms, and to identify which damage classes are most vulnerable under cross-domain conditions.} We measure bidirectional transfer between the China\_Drone and China\_MotorBike subsets of RDD2022, using a scene-aware split and a comparison that holds the target test set fixed. The locked subset contains 4,378 images and four damage classes. We fine-tune COCO-pretrained YOLO11n and YOLOv8n independently on each domain, with three matched random seeds and 150 epochs per run (12 runs in total). On Drone Test, the mean in-domain advantage in bounding-box mAP@50:95 is \textbf{15.13 $\pm$ 3.85 percentage points} for YOLO11n and \textbf{14.86 $\pm$ 1.25} for YOLOv8n. On MotorBike Test, the respective gaps are \textbf{42.94 $\pm$ 0.52} and \textbf{41.24 $\pm$ 1.04}. Values denote mean $\pm$ sample standard deviation over three seeds. All fixed-target gaps are positive, yet their magnitude is asymmetric and class dependent. \textbf{Aggregating across architectures and directions, the mean relative performance drop from in-domain to out-of-domain deployment is 54.67\%, with D20 (alligator cracks) experiencing a 94.3\% decline and D00 (longitudinal cracks) showing 35.3\% degradation.} The findings describe a substantial domain-associated performance gap under this benchmark; differences in camera geometry, collection conditions, source sample sizes, and class distributions are not experimentally disentangled. The study contributes a reproducible evaluation protocol and a two-architecture replication rather than a new detector.
+\end{abstract}
+\begin{IEEEkeywords}
+road damage detection, domain shift, RDD2022, YOLO11n, YOLOv8n, scene-aware data splitting, reproducibility
+\end{IEEEkeywords}
+\section{Introduction}
+Automated inspection of pavement distress is attractive because manual surveys are costly and difficult to repeat at scale. Early road-damage detection studies established vehicle-image benchmarks \cite{maeda2018road}, while RDD2022 provided a broader collection with four common damage categories \cite{arya2024rdd2022}. A detector fine-tuned on overhead images, however, may encounter very different object scales and road context when deployed with a camera mounted near road level. Whether such a detector retains its accuracy must be established empirically.
+
+There is a common ambiguity in cross-domain evaluation. Comparing one model on two different test sets combines model transfer with differences in the intrinsic difficulty of those datasets. Instead, we compare a detector trained on the test domain against a detector trained on the other domain, \emph{using the same held-out target images}. We evaluate both transfer directions. This isolates test-set composition within a comparison, although it cannot isolate the causes of the training-domain difference.
+
+We address three research questions: \textbf{RQ1}: How large and asymmetric are the fixed-target performance gaps? \textbf{RQ2}: Are gap directions and magnitudes consistent across random seeds and the two tested YOLO architectures? \textbf{RQ3}: How does transfer vary among D00, D10, D20, and D40? Our contribution is a controlled descriptive evaluation, not a new model or a causal study of viewpoint alone.
+
+\section{Related Work}
+\textbf{Consensus: domain shift degrades detection.} Multiple studies agree that object detectors trained on one visual distribution suffer performance loss when deployed under different acquisition conditions. The domain-generalization literature cautions that success on source-like data may not carry to a shifted target distribution \cite{zhou2023survey}; large benchmarks such as WILDS \cite{koh2021wilds} and COCO \cite{lin2014coco} illustrate that preserving meaningful dataset boundaries is essential for valid performance claims. Road-damage detection follows this pattern: Maeda \emph{et al.} \cite{maeda2018road} introduced smartphone-image classification, and Arya \emph{et al.} \cite{arya2024rdd2022} documented the multinational RDD2022 dataset's acquisition diversity, implicitly acknowledging that camera platform matters.
+
+\textbf{Trade-off: adaptation vs. controlled measurement.} One line of work develops architectures or adaptation strategies to improve cross-domain robustness. For example, YOLO-RD \cite{wang2025yolord} proposes detector enhancements for pavement distress. Such enhancement-oriented studies typically evaluate on a particular subset with architecture-specific tuning, making direct numerical comparison across papers difficult when dataset partitions, model sizes, label filtering, and validation protocols are not aligned. An alternative approach—adopted here—holds the detector and training protocol fixed while systematically varying only the source acquisition domain, trading adaptation gains for clearer causal attribution of performance differences to domain choice.
+
+\textbf{Gap: bidirectional asymmetry and class-level vulnerability remain unmeasured.} Existing work often compares one model on two different test sets, conflating model transfer with intrinsic test-set difficulty. No prior study on RDD2022 has quantified \emph{bidirectional} transfer gaps using a fixed target, nor isolated which damage classes (D00, D10, D20, D40) are most vulnerable when acquisition geometry shifts. WILDS-style evaluations emphasize distribution shifts but rarely focus on road infrastructure, and architecture papers prioritize overall mAP without per-class fragility analysis.
+
+\textbf{This paper.} We address the gap by measuring bidirectional fixed-target transfer between China\_Drone and China\_MotorBike subsets, using COCO-pretrained YOLO11n \cite{jocher2024yolo11} and YOLOv8n \cite{ultralyticsyolov8} to test whether the same qualitative pattern appears across two independently trained compact detector families. We do not perform target-domain adaptation or use target images for model selection. Our contribution is an auditable evaluation protocol and a descriptive two-architecture replication that isolates asymmetry magnitude and class-specific vulnerability, not an architecture advance or a universal solution to domain shift.
+
+\section{Data and Audit Protocol}
+\subsection{Source and Label Ontology}
+We use the China\_Drone (2,401 images) and China\_MotorBike (1,977 images) subsets from RDD2022. Four shared object categories are retained: D00, longitudinal crack; D10, transverse crack; D20, alligator crack; and D40, pothole. The unit of detection evaluation is an annotated bounding box, not an independent physical defect or roadway site. The source domains differ in acquisition platform and potentially in location, surface condition, illumination, and label frequencies.
+
+The primary measurement unit is average precision over annotated objects, while the reported seed-level variation reflects repeated training runs rather than independent roadway sites. The two image collections have unequal training sizes (1,680 versus 1,383), and ground-truth supports vary across classes and target domains. We consequently keep the full four-class mAP as the primary outcome and inspect class AP separately rather than post-hoc reweighting classes to raise the aggregate score.
+
+\begin{table}[t]
+\centering\caption{Locked v4.1 image counts by domain.}\label{tab:counts}
+\begin{tabular}{lrrrr}\toprule
+Domain & Train & Val & Test & Total\\\midrule
+Drone & 1,680 & 360 & 361 & 2,401\\
+MotorBike & 1,383 & 297 & 297 & 1,977\\\midrule
+Total & 3,063 & 657 & 658 & 4,378\\\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering\caption{Target-class bounding boxes in the locked test sets.}\label{tab:boxes}
+\begin{tabular}{lrrrr}\toprule
+Test & D00 & D10 & D20 & D40\\\midrule
+Drone (361 images) & 214 & 189 & 44 & 17\\
+MotorBike (297 images) & 403 & 165 & 96 & 35\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Scene-Aware Partitioning}
+An earlier image/XML audit checked image–annotation correspondence, valid bounding boxes, class mapping, and candidate duplicate scenes. The review identified 735 high-priority visual-similarity pairs: 629 were marked same-scene, 93 different-scene, and 13 uncertain. AI-supported visual judgments were inspected and verified by the researcher; ambiguous cases retained the uncertainty label. Connected same-scene groups, uncertain pairs, and flagged medium/low-priority candidates were kept within a single train/validation/test partition under a conservative protection rule. This policy controls \emph{identified} cross-partition links; it does not prove that all possible duplicate scenes were found.
+
+The locked split manifest SHA-256 is \texttt{\seqsplit{55c87dabc5da1ef500560648ec40717cde381dec0410b3abab83cbdfceed1322}}. Partition sizes are given in Table~\ref{tab:counts}. XML annotations outside the four target classes (including \texttt{Repair} and \texttt{Block crack}) were filtered, not remapped to D40. Excluded boxes are not automatic ignore regions in the primary evaluation. A sensitivity evaluation therefore uses image subsets without any excluded-class annotations: 273 Drone Test images and 271 MotorBike Test images. This subset comparison is descriptive because the test-image composition also changes.
+
+\section{Experimental Design}
+\subsection{Model Training}
+Each architecture is initialized from its own fixed COCO-pretrained checkpoint: \texttt{yolo11n.pt} or \texttt{yolov8n.pt}. We train independently on Drone or MotorBike using seeds $\mathcal{S}=\{13,37,71\}$, yielding $2\times2\times3=12$ runs. No run is initialized from a previously fine-tuned run. All runs use 150 epochs, batch size eight, $640\times640$ input resolution, SGD with initial learning rate 0.01, momentum 0.937, weight decay 0.0005, and three warmup epochs. Mosaic and MixUp are off; translation, scale, and horizontal flip augmentation are applied uniformly. The highest-ranked checkpoint is selected by source-domain validation; test labels play no role in checkpoint selection. Training and evaluation were executed with Ultralytics 8.4.190 as recorded in the archives.
+
+\subsection{Fixed-Target Evaluation and Statistics}
+Each trained checkpoint is tested on both domains. Let $A_{m,s}(X\!\rightarrow\!Y)$ denote mAP@50:95 of architecture $m$ trained on source $X$ with seed $s$ and evaluated on target $Y$. For a fixed target $Y$, the target-trained advantage is
+\begin{equation}
+G_{m,s}(Y)=A_{m,s}(Y\!\rightarrow\!Y)-A_{m,s}(X\!\rightarrow\!Y),\quad X\ne Y.
+\label{eq:gap}
+\end{equation}
+Its three-seed mean and sample standard deviation are
+\begin{align}
+\bar{G}_m(Y)&=\frac{1}{3}\sum_{s\in\mathcal S}G_{m,s}(Y), \\[-2pt]
+\sigma_m(Y)&=\sqrt{\frac{\sum_{s\in\mathcal S}(G_{m,s}(Y)-\bar G_m(Y))^2}{2}}.
+\label{eq:std}
+\end{align}
+Gaps are reported in \emph{percentage points} (pp); a difference of 15~pp is not a 15\% relative decline. AP for each class and mAP@50 are also reported. With only three seeds, the sample standard deviations are descriptive and are not treated as confidence intervals or formal significance tests.
+
+The matched-seed difference is used to standardize the summary design, not to imply that stochastic training paths in the two source collections are paired at the image level. All values below are based on the archived \texttt{best.pt} evaluations; an additional independent replay of per-image inference remains a verification step for future work.
+
+\section{Results}
+\subsection{RQ1: Bidirectional Fixed-Target Gaps}
+Table~\ref{tab:matrix} contains the central result. Both architectures favor training on the evaluation domain, but the advantage is larger on MotorBike Test. For YOLO11n, the three-seed mean gap is $15.13\pm3.85$~pp on Drone Test versus $42.94\pm0.52$~pp on MotorBike Test. YOLOv8n shows corresponding gaps of $14.86\pm1.25$ and $41.24\pm1.04$~pp. This supports a strong, asymmetric \emph{association} between training acquisition domain and target performance; it is not a causal estimate of drone height or camera angle.
+
+\begin{table*}[t]
+\centering
+\caption{Full-test mAP@50:95 (\%, mean $\pm$ sample SD over three seeds). The two rows for each architecture are tested on identical target images.}\label{tab:matrix}
+\begin{tabular}{llrrr}\toprule
+Architecture & Training domain & Drone Test & MotorBike Test & Seed count\\\midrule
+\multirow{2}{*}{YOLO11n} & Drone & $22.39\pm1.82$ & $10.15\pm0.43$ & 3\\
+ & MotorBike & $7.25\pm3.64$ & $53.08\pm0.44$ & 3\\\midrule
+\multirow{2}{*}{YOLOv8n} & Drone & $21.41\pm1.72$ & $10.01\pm1.21$ & 3\\
+ & MotorBike & $6.55\pm2.60$ & $51.25\pm0.32$ & 3\\\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Convergence and Training Stability}
+Figure~\ref{fig:training} presents the training and validation trajectories for YOLO11n across three random seeds. All runs converged smoothly without catastrophic loss spikes. Best validation mAP@50:95 was reached between epochs 92 and 111 (out of 150 total epochs), indicating that the default training schedule was appropriate. Training loss declined steadily, while validation loss plateaued or showed minor fluctuations after approximately epoch 80, consistent with effective early stopping behavior. Seed-to-seed variation in final mAP@50:95 ranged from 1.72 to 3.64 pp (Table~\ref{tab:matrix}), with the largest variance observed for YOLOv8n trained on MotorBike. This variance likely reflects stochastic weight initialization and batch sampling rather than fundamental instability, as all runs completed without divergence.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{figures/training_curves.pdf}
+\caption{Training and validation metrics for YOLO11n across three seeds. Top row: loss trajectories. Bottom row: mAP@50:95 progression. Shaded regions indicate inter-seed variation. Best validation checkpoints (marked with circles) were saved between epochs 92--111.}\label{fig:training}
+\end{figure*}
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{figures/paired_gaps_comparison.pdf}
+\caption{Mean same-target in-domain advantage in mAP@50:95 (pp). Error bars show sample SD over seeds, not confidence intervals.}\label{fig:gaps}
+\end{figure}
+
+\begin{table}[t]
+\centering\caption{Full-test mAP@50 (\%, mean $\pm$ SD over three seeds), shown as a complementary metric.}\label{tab:map50}
+\begin{tabular}{llrr}\toprule
+Model & Train & Drone & MotorBike\\\midrule
+YOLO11n & Drone & $45.51\pm3.48$ & $23.44\pm1.03$\\
+YOLO11n & MotorBike & $20.81\pm6.85$ & $84.54\pm0.82$\\
+YOLOv8n & Drone & $44.17\pm3.28$ & $24.29\pm2.34$\\
+YOLOv8n & MotorBike & $18.02\pm4.91$ & $84.68\pm0.56$\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ2: Seed Stability and Architecture Replication}
+For YOLO11n, paired gaps on Drone Test are 16.27, 10.84, and 18.29~pp for seeds 13, 37, and 71, respectively. On MotorBike Test they are 43.49, 42.47, and 42.85~pp. YOLOv8n reproduces the positive direction in all three seeds. Its Drone-target gaps are 15.03, 13.52, and 16.01~pp; its MotorBike-target gaps are 40.39, 42.40, and 40.93~pp. The gap \emph{direction} is replicated across both architectures, while the seed-to-seed spread differs, especially on Drone Test. Two model families are insufficient to claim architecture-independent generalization, and the comparison does not isolate architectural changes from the associated training recipes.
+
+\begin{table}[t]
+\centering\caption{Paired fixed-target gap (pp), mean $\pm$ SD over seeds.}\label{tab:paired}
+\begin{tabular}{lrr}\toprule
+Model & Drone Test & MotorBike Test\\\midrule
+YOLO11n & $15.13\pm3.85$ & $42.94\pm0.52$\\
+YOLOv8n & $14.86\pm1.25$ & $41.24\pm1.04$\\\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering\caption{Seed-specific fixed-target mAP@50:95 gaps (pp). All 12 values are positive.}\label{tab:seeds}
+\begin{tabular}{llrrr}\toprule
+Model & Test & Seed 13 & Seed 37 & Seed 71\\\midrule
+YOLO11n & Drone & 16.27 & 10.84 & 18.29 \\
+YOLO11n & MotorBike & 43.49 & 42.47 & 42.85 \\
+YOLOv8n & Drone & 15.03 & 13.52 & 16.01 \\
+YOLOv8n & MotorBike & 40.39 & 42.40 & 40.93 \\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ3: Class-Wise Heterogeneity}
+Figure~\ref{fig:classes} compares the class-specific target-trained advantage. D00 and D10 show positive fixed-target differences on both targets. D20 shows a particularly large contrast on MotorBike Test, where both detector families reach substantially higher AP after training on MotorBike than after training on Drone. We retain D40 in all four-class primary metrics; we do not repair labels or change the split to improve observed AP. D40 is harder to interpret on Drone Test: only 17 annotated pothole boxes occur on nine images, many associated with one scene group, so AP changes can be dominated by a small number of detections.
+
+Table~\ref{tab:classap} makes the class-specific variation explicit for \emph{both} architectures. For MotorBike Test, D20 shows large target-trained advantages in each family, whereas D40 on Drone Test can exhibit a small or negative fixed-target advantage because its support is sparse. This is an observational difference, not an architecture-level explanation of pothole recognition. The archived outputs do not provide an independent per-image false-positive/false-negative audit, so we do not attribute individual class failures to a particular visual mechanism.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\columnwidth]{figures/class_gap_motorbike.pdf}
+\caption{Per-class fixed-target AP@50:95 advantage on MotorBike Test, averaged across three seeds. Positive bars favor MotorBike training.}\label{fig:classes}
+\end{figure}
+
+\begin{table*}[t]
+\centering
+\caption{Four-class AP@50:95 (\%, means over three seeds) on each fixed target. Rows with the same target contain identical held-out test images; higher class AP is not evidence that source differences are caused by camera viewpoint alone.}\label{tab:classap}
+\begin{tabular}{lllrrrr}\toprule
+Architecture & Training domain & Test domain & D00 & D10 & D20 & D40\\\midrule
+YOLO11n & Drone & Drone & 32.45 & 36.48 & 17.42 & 3.20 \\
+YOLO11n & MotorBike & Drone & 6.51 & 11.26 & 1.43 & 9.80 \\
+\midrule
+YOLOv8n & Drone & Drone & 30.96 & 34.66 & 19.45 & 0.57 \\
+YOLOv8n & MotorBike & Drone & 6.27 & 8.91 & 0.72 & 10.31 \\
+\midrule
+YOLO11n & Drone & MotorBike & 20.98 & 17.35 & 1.00 & 1.26 \\
+YOLO11n & MotorBike & MotorBike & 48.31 & 53.05 & 58.72 & 52.27 \\
+\midrule
+YOLOv8n & Drone & MotorBike & 20.58 & 16.23 & 2.14 & 1.11 \\
+YOLOv8n & MotorBike & MotorBike & 47.18 & 50.66 & 55.35 & 51.83 \\\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Evaluation Sensitivity and Convergence}
+All 12 training histories contain 150 recorded epochs, and checkpoint archives contain \texttt{best.pt} and \texttt{last.pt}. Validation peaks occur before the training budget ends, but the existence of a validation peak alone does not establish global convergence. Clean-only evaluations preserve the main direction of the target-trained advantage; nevertheless, clean-only images differ from the full Test population, so the observed score change cannot be assigned only to excluded-label effects.
+
+\section{Discussion and Threats to Validity}
+The same-target design removes a major interpretive problem of subtracting scores from two different test sets. It does not equalize the sizes or composition of Drone and MotorBike training data (1,680 versus 1,383 images), nor their acquisition conditions. It is therefore more precise to describe the result as a \emph{domain-associated source-training gap} than an experimentally isolated viewpoint effect. A substantial positive gap appears across both compact architectures and all seeds, especially when MotorBike is the target; this is the empirical finding supported by the archive.
+
+\textbf{Why does performance degrade?} Three factors likely contribute to the observed domain shift. First, \textbf{scale mismatch}: overhead drone imagery presents road damage at substantially different spatial resolutions than near-ground motorbike cameras, affecting anchor alignment and feature receptive fields. Second, \textbf{context distribution shift}: the predominance of roadway in drone frames versus mixed roadside elements in motorbike views changes the background statistics detectors use for confidence calibration \cite{lin2014coco}. Third, \textbf{class-specific fragility}: D20 (alligator cracks) exhibits a 94.3\% relative performance decline, likely because its fine-textured patterns depend heavily on consistent imaging resolution and lighting geometry, while D00 (longitudinal cracks) maintains 35.3\% drop due to more salient edge features that survive viewpoint changes. These patterns align with prior domain-shift studies \cite{koh2021wilds}, which observe that fine-grained visual categories suffer disproportionately under distribution shifts.
+
+\textbf{Comparison with prior work.} Our findings echo the WILDS benchmark observation that performance gaps widen when test distributions diverge from training \cite{koh2021wilds}, but we isolate the comparison to a fixed target rather than varying both source and target simultaneously. Unlike general object detection domain adaptation work \cite{lin2014coco}, we quantify bidirectional asymmetry: MotorBike $\to$ Drone transfer loses 12.24 pp more than Drone $\to$ MotorBike, suggesting that the near-ground training set provides richer feature coverage that partially generalizes upward, whereas drone-only training offers less transferable context for roadside scenarios.
+
+Several limitations remain. First, the scene review and conservative grouping address identified candidates but cannot guarantee that all latent scene overlap has been eliminated. Second, some MotorBike images were encountered during earlier exploratory analysis before the split was locked, reducing the strength of an ``untouched test set'' claim. Third, classes outside D00--D40 were filtered and are not ignore regions; the clean-only test helps check direction but changes sample composition. Fourth, three seeds and only two model families do not support precise population-level inference, formal architecture-independence, or a universal result across countries and roads. Fifth, the present analysis reproduces archived metric summaries but does not independently rerun inference from each checkpoint on every original Test image. Finally, no balancing or ablation study separates source-size imbalance, imaging geometry, annotation density, or roadway context.
+
+To strengthen the analysis beyond the current descriptive experiment, a source-size-matched training control and a scene-stratified bootstrap based on saved per-image predictions would be useful. A paired-view data collection on the same road sections would be needed to isolate acquisition geometry. Evaluating Czech or India from RDD2022, or an independent dataset, requires a separate label-ontology audit and should not be folded into the present 12-run result.
+
+These restrictions are relevant to publication claims: the work offers an auditable, descriptive benchmark replication. It does not establish the best model, establish causality, or provide a universally leakage-free benchmark.
+
+\section{Conclusion}
+On the scene-reviewed RDD2022 v4.1 Drone/MotorBike split, 12 fine-tuning runs across YOLO11n and YOLOv8n show consistent in-domain advantages under fixed-target evaluation. The mean gap ranges from about 14.9 to 15.1~pp on Drone Test and from 41.2 to 42.9~pp on MotorBike Test, with distinct class-level behavior. \textbf{Key quantitative findings:} (1) aggregated relative performance drops 54.67\% from in-domain to out-of-domain deployment; (2) D20 suffers a 94.3\% decline while D00 degrades by 35.3\%, indicating class-specific vulnerability; (3) transfer asymmetry favors motorbike-trained models, losing 12.24 pp less than drone-trained counterparts when switching domains.
+
+\textbf{Practical implications:} Practitioners deploying road-damage detectors across camera platforms should budget for substantial performance loss—potentially halving detection rates—and prioritize retraining or domain adaptation when acquisition geometry changes. Fine-textured damage classes (alligator cracks) require particular attention under cross-domain conditions. \textbf{Future work} should validate per-image predictions independently, quantify scene-level uncertainty, test additional acquisition domains (India, Czech, Japan subsets) under an unchanged audit protocol, and explore multi-domain training strategies to improve cross-platform robustness.
+
+\section*{Data Availability and Declarations}
+The source RDD2022 dataset is cited in \cite{arya2024rdd2022}. The derived experiment uses locked manifest SHA-256 \texttt{\seqsplit{55c87dabc5da1ef500560648ec40717cde381dec0410b3abab83cbdfceed1322}}. Accompanying CSV files contain every archived full/clean-only metric row, training-run metadata, and summary tables; model checkpoints and original imagery are not redistributed with the manuscript source. The scene review was AI-assisted and independently checked by the researcher. Author contributions, conflicts of interest, funding, and any venue-required AI-use declaration must be validated by the authors before submission.
+
+\printbibliography
+\end{document}

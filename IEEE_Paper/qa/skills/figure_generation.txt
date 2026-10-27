@@ -1,0 +1,73 @@
+training_curves text exit 0 Nature Figure PDF Text Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/training_curves.pdf
+minimum required: 5 pt
+minimum found: 7.2 pt
+text runs: 16
+below minimum: 0
+verdict: PASS
+note: content-stream scanning does not replace final-size visual inspection or account for every PDF transform (e.g. Form XObject matrices)
+training_curves collision exit 0 Nature Figure Rendered Collision Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/training_curves.pdf
+pages: 1
+visible text boxes: 34
+stroke paths: 65
+
+
+summary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+paired_gaps_comparison text exit 0 Nature Figure PDF Text Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/paired_gaps_comparison.pdf
+minimum required: 5 pt
+minimum found: 7 pt
+text runs: 4
+below minimum: 0
+verdict: PASS
+note: content-stream scanning does not replace final-size visual inspection or account for every PDF transform (e.g. Form XObject matrices)
+paired_gaps_comparison collision exit 0 Nature Figure Rendered Collision Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/paired_gaps_comparison.pdf
+pages: 1
+visible text boxes: 18
+stroke paths: 37
+
+
+summary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+class_gap_motorbike text exit 0 Nature Figure PDF Text Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/class_gap_motorbike.pdf
+minimum required: 5 pt
+minimum found: 7.2 pt
+text runs: 5
+below minimum: 0
+verdict: PASS
+note: content-stream scanning does not replace final-size visual inspection or account for every PDF transform (e.g. Form XObject matrices)
+class_gap_motorbike collision exit 0 Nature Figure Rendered Collision Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/class_gap_motorbike.pdf
+pages: 1
+visible text boxes: 17
+stroke paths: 73
+
+
+summary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+domain_comparison text exit 0 Nature Figure PDF Text Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/domain_comparison.pdf
+minimum required: 5 pt
+minimum found: 7 pt
+text runs: 10
+below minimum: 0
+verdict: PASS
+note: content-stream scanning does not replace final-size visual inspection or account for every PDF transform (e.g. Form XObject matrices)
+domain_comparison collision exit 0 Nature Figure Rendered Collision Audit
+pdf: /workspace/paper_finalization/IEEE_Paper_Final/figures/domain_comparison.pdf
+pages: 1
+visible text boxes: 32
+stroke paths: 74
+
+
+summary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+All four light figures generated with alignment, glyph and collision audits.

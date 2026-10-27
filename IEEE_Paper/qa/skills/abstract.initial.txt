@@ -1,0 +1,30 @@
+============================================================
+Abstract Structure Diagnosis
+============================================================
+File: /workspace/paper_finalization/IEEE_Paper_Final/main.tex
+Language: en
+Status: FAIL
+
+------------------------------------------------------------
+Element Diagnosis
+------------------------------------------------------------
+
+  Background  : [MISSING ]
+    Suggestion: Add 1-2 sentences establishing the research context and knowledge gap.
+
+  Objective   : [MISSING ]
+    Suggestion: Add a sentence starting with 'This study aims to...' or 'We investigate...'
+
+  Methods     : [PRESENT ]
+    Evidence: "Road-damage detectors are often evaluated on imagery resembling their training data, yet deployment across camera pla..."
+
+  Results     : [PRESENT ]
+    Evidence: "Road-damage detectors are often evaluated on imagery resembling their training data, yet deployment across camera pla..."
+
+  Conclusion  : [PRESENT ]
+    Evidence: "The study contributes a reproducible bidirectional protocol and a three-variant replication of domain-associated asym..."
+
+------------------------------------------------------------
+  Words: 204 (limit: 150–250) [PASS]
+
+============================================================

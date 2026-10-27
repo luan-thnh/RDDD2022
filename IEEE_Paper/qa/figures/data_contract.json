@@ -1,0 +1,23 @@
+{
+  "backend": "Python/matplotlib",
+  "subset": "full",
+  "metric_rows": 36,
+  "gap_rows": 18,
+  "seeds": [
+    13,
+    37,
+    71
+  ],
+  "center": "arithmetic mean",
+  "uncertainty": "sample SD, ddof=1",
+  "pairing": "same model, target, seed; change training domain",
+  "training_figure": "original representative YOLO11n Drone experiment; all150epochs x3seeds",
+  "class_figure_target": "MotorBike; Drone class results remain in the main class-AP table",
+  "exclusions": "No metric observations excluded within declared full-test figures; clean-only is a separately reported sensitivity subset",
+  "figure_roles": {
+    "training_curves": "training trajectory support",
+    "paired_gaps_comparison": "fixed-target gap magnitude and target asymmetry",
+    "class_gap_motorbike": "class-specific transfer vulnerability",
+    "domain_comparison": "new-model in-domain gains versus remaining cross-domain deficit"
+  }
+}

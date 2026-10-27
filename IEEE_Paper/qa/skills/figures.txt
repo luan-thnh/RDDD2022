@@ -1,0 +1,9 @@
+Checking figures in main.tex...
+Found 4 figures.
+------------------------------------------------------------
+[OK]    Line 123: figures/training_curves.pdf
+[OK]    Line 128: figures/paired_gaps_comparison.pdf
+[OK]    Line 181: figures/class_gap_motorbike.pdf
+[OK]    Line 212: figures/domain_comparison.pdf
+------------------------------------------------------------
+[PASS] All figures passed check.

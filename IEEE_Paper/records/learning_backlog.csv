@@ -1,0 +1,4 @@
+observation,rule,validation,status
+Unsolicited rewrite previously changed author narrative,Apply model additions against actual author baseline and record each deviation separately,Protected-token/count-table andflow checks passed,Locallyvalidated;global skillsunchanged
+Lexical script warnings can misclassify complete scientific prose,Triage heuristic findings against actual claims rather than inventing stronger evidence,Abstract/logic semanticclarification;experimentwarnings documented,Locallyvalidated
+PDF hatching/grid geometry crossed numeric annotations,Check rendered geometry after export and repair the actual layout without changing data/tolerances,Final4collisionPASS;alignmentPASS,Locallyvalidated

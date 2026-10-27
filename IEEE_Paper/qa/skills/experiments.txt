@@ -1,0 +1,18 @@
+% EXPERIMENT (Line 80) [Severity: Minor] [Priority: P2]: No ablation or component-level evidence is mentioned; verify that contribution attribution is covered.
+
+% EXPERIMENT (Line 176) [Severity: Major] [Priority: P1]: Wording sounds promotional; keep the claim evidence-backed and specific.
+
+% EXPERIMENT (Line 207) [Severity: Major] [Priority: P1]: Performance claim lacks an explicit baseline or comparator.
+
+% EXPERIMENT (Line 100) [Severity: Minor] [Priority: P2]: No ablation or component-level evidence is mentioned; verify that contribution attribution is covered.
+
+% EXPERIMENT (Line 100) [Severity: Minor] [Priority: P2]: No statistical significance, variance, or confidence information is mentioned.
+
+% EXPERIMENT (Line 100) [Severity: Minor] [Priority: P2]: No efficiency comparison is mentioned; verify whether runtime, memory, or parameter cost should be reported.
+
+% EXPERIMENT (Line 219) [Severity: Major] [Priority: P1]: Discussion may lack depth: low ratio of explanatory/attribution language (1/10 lines). Add causal analysis explaining why results occur.
+
+% EXPERIMENT (Line 236) [Severity: Minor] [Priority: P2]: Conclusion lacks implications or broader impact statement.
+
+% EXPERIMENT (Line 236) [Severity: Minor] [Priority: P2]: Conclusion lacks explicit summary of core findings.
+

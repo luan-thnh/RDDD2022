@@ -1,0 +1,47 @@
+{
+  "project_id": "RDD2022_v41_paper",
+  "run_id": "20261027_author_flow_finalization",
+  "timestamp_utc": "2026-10-27T12:04:13.165109+00:00",
+  "stage": "MANUSCRIPT_FINALIZATION",
+  "status": "completed_compiled_local_not_pushed",
+  "study_type": "descriptive bidirectional fixed-target detector evaluation",
+  "baseline_source": "latest author-supplied pre-YOLO26 LaTeX archive",
+  "baseline_tex_sha256": "0d9b303bf5e83cc457f4e8d2e94637c5e277314cf68b7dfea34c74db32d60e13",
+  "final_tex_sha256": "8e4ee9deb0170520876900464892fa968ae29c302f4a3bf1d179232da43069df",
+  "protocol_sha256": "55c87dabc5da1ef500560648ec40717cde381dec0410b3abab83cbdfceed1322",
+  "scope": "Complete the author-approved YOLO26 integration flow; preserve the baseline argument and main-paper evidence",
+  "skills": [
+    "latex-paper-en",
+    "academic-paper-review",
+    "nature-figure",
+    "research-workflow"
+  ],
+  "python_execution": "workspace venv; existing packages reused; no global installation",
+  "holdout_access": "No new raw-image access or inference",
+  "new_experiments": false,
+  "outputs": {
+    "pages": 7,
+    "main_tables": 7,
+    "main_figures": 4,
+    "research_questions": 4
+  },
+  "validation": {
+    "status": "passed",
+    "checks": [
+      "72 real metric rows and four-class mAP identity; all full/clean paired gaps positive; negative duplicate/missing-baseline tests passed",
+      "Original title, authors, equation structures, labels and all cited keys retained; only YOLO26 citation added",
+      "All five metric-table bodies independently match raw observations; original count/support tables are byte-identical",
+      "Four agreed RQs, original argument chain, seven main-paper tables and four distinct light figures; rendered alignment/collision audits passed",
+      "Compiled 7-page PDF: resolved citations/labels, no missing glyphs or material horizontal overflow"
+    ],
+    "scope": "Source integration, archived-metric recomputation and compiled artifact QA; not independent training/inference or raw-scene audit"
+  },
+  "remaining_boundaries": [
+    "Archived-metric rather than independently replayed checkpoint inference",
+    "Author-reported original scene/annotation audit not independently rerun",
+    "Full text/DOIs and broad novelty search not independently verified",
+    "Venue/page limit and funding/conflict/contribution declarations require author confirmation"
+  ],
+  "publication": "No repository or remote update performed in this turn",
+  "next_action": "Author reviews the completed manuscript and source diff; apply venue-specific requirements and declarations before submission"
+}
